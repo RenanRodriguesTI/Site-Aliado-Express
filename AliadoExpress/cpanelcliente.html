@@ -3,7 +3,113 @@
 <head>
     <meta charset="utf-8" />
     <title>Nome do Cliente</title>
+    <link rel="stylesheet" href="CSS/estilo.css"/>
+    <style>
+        #imagem-fundo{
+            background-color:red;
+            min-height:300px;
+            position: relative;
+        }
+        #imagem-perfil{
+            min-height: 120px;
+            position:relative;
+            top:100px;
+            width:120px;
+            background-color:yellow
+        }
+        #informacoes-usuario{
+            background-color: aqua;
+            min-height: 300px;
+            width:25%;
+        }
+        #Cpanelusuario{
+            background-color:blue;
+            min-height: 300px;
+            
+        }
+        #nomeuserprincipal{
+            background-color:pink;
+            width:60%;
+            position: relative;
+            top:50px;
+            left:120px;
+        }
+    
+        #btn-editar-perfil{
+            background-color: white;
+            padding: 4px;
+            position: absolute;
+            top:170px;
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
+    <div id="interface">
+            <header>
+            
+            <div class="logo" >
+                <figure >
+                             <a href="home.html"><img id="logomarca" src="IMAGENS/aliadoexpress2.png" alt="Logo" /></a>
+                    
+                    <label style="float:left;margin-top:20px;" id="icone" for="check"><img id="icone-responsivo" src="IMAGENS/menu.png" alt="icone do menu"/></label>
+                </figure>
+            </div>
+                
+            
+            
+        <nav class="cabecalho"  >
+             <ul id="menu" style="">
+        
+                <li><a href="home.html" >Home</a></li>
+                <li><a href="Filiais.html">Filiais</a></li>
+                <li><a href="empresa.html">Empresa</a></li>
+                <li><a href="cotacao.html">Cotação</a></li>
+                <li><a href="trabalheconosco.html">Trabalhe conosco</a></li>
+                <li><a href="faleconosco.html">Fale Conosco</a></li>
+            
+            </ul>    
+        </nav>
+        
+         
+        </header>
+       
+    <input type="checkbox" id="check"/>
+    
+     <aside class="barra">
+        <nav>
+              <ul>
+            
+                <li class="link"><a  href="home.html" >Home</a></li>
+                <li class="link"><a  href="Filiais.html">Filiais</a></li>
+                <li class="link"><a  href="empresa.html">Empresa</a></li>
+                <li class="link"><a  href="cotacao.html">Cotação</a></li>
+                <li class="link"><a  href="trabalheconosco.html">Trabalhe conosco</a></li>
+                <li class="link"><a  href="faleconosco.html">Fale Conosco</a></li>
+                </ul>
+ 
+            
+        
+        </nav>
+    
+    
+    </aside>
+        <section id="conteudo">
+        
+            <section id="imagem-fundo">
+            <div id="imagem-perfil">
+            
+            </div>
+            <p id="nomeuserprincipal">Nome do usuário</p>
+            <a id="btn-editar-perfil">Editar</a>
+            
+            </section>
+            <aside id="informacoes-usuario">
+            </aside>
+            <section id="Cpanelusuario">
+            
+            </section>
+        </section>
+    </div>
 </body>
 </html>
