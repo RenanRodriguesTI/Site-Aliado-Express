@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Cadastro de Motorista</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="estiloformcadastros.css"/>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+    
+       
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: arial;
+
+}
+/*formatação bakcground*/    
+body{
+            background-color: rgb(232,238,240);
+        }
+    
+
+
+
+</style>
+   
+</head>
+<body>
+<form action="cadastromotorista.php" method="post" class="formulario">
+     <h3 class="titulo">Cadastro de Motorista</h3>
+<div class="area-formulario" id="area1">
+   
+    <label for="nome">Código do Funcionário</label>
+    <input type="text" class="texto" name="codfun" id="nome"/>
+    
+    <label for="nome">Nome do Funcionário</label>
+    <input type="text" class="texto" name="nomefun" id="nome"/>
+
+    
+    <label for="rg">RG</label>
+    <input type="text" class="texto" name="rg_fun" id="rg" />
+
+    <label for="cpf">CPF</label>
+    <input type="text" class="texto" name="cpf_fun" id="cpf"/>
+    
+    <label for="fone">Fone</label>
+    <input type="text" class="texto" name="fone" id="fone" />
+    
+    <label for="login">Login</label>
+    <input type="text" class="texto" name="login" id="login" />
+    
+    <label for="senha">Senha</label>
+    <input type="password" class="texto" name="senha" id="senha"/>
+    
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="localizar" value="Localizar"/>
+<input type="submit" class="bt_acao" name="btn_cadastrar" value="Salvar"/>
+<input type="submit" class="bt_acao" name="excluir" value="Excluir"/> 
+<input type="submit" class="bt_acao" name="btn_cancelar" value="Cancelar"/>
+</div>
+</form>
+</body>
+</html>

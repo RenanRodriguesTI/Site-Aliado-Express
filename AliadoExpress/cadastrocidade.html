@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Cadastro de Cidade</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="estiloformcadastros.css"/>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+    
+       
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: arial;
+
+}
+/*formatação bakcground*/    
+body{
+            background-color: rgb(232,238,240);
+        }
+    
+
+
+
+</style>
+   
+</head>
+<body>
+<form action="cadastrodecidade.php" method="post" class="formulario">
+     <h3 class="titulo">Cadastro de Cidade</h3>
+<div class="area-formulario" id="area1">
+   
+    <label for="codcidade">Código da Cidade</label>
+    <input type="text" class="texto" name="codcidade" id="codcidade" readonly/>
+    
+    <label for="estado">Estado</label>
+     <select name="estado" id="estado">
+    <option value="0">Selecione o Estado</option>
+        <?=carregacidade($codcidade)?>
+    </select>
+     <label for="cidade">Cidade</label>
+     <select name="cidade" id="cidade">
+    <option value="0">Selecione a Cidade</option>
+        <?=carregacidade($codcidade)?>
+    </select>
+    
+    
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="localizar" value="Localizar"/>
+<input type="submit" class="bt_acao" name="btn_cadastrar" value="Salvar"/>
+<input type="submit" class="bt_acao" name="excluir" value="Excluir"/> 
+<input type="submit" class="bt_acao" name="btn_cancelar" value="Cancelar"/>
+</div>
+</form>
+</body>
+</html>

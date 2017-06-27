@@ -1,0 +1,303 @@
+
+
+/*Formatação Padrão*/
+*{
+    padding:0;
+    margin:0;
+    font-family:calibri,verdana,sans-serif;
+
+}
+
+/*Div id interface*/
+div#interface{
+     background-color: rgb(232,238,240);
+   min-height: 600px;
+  
+ 
+
+}
+
+
+body header nav ul#menu{
+    
+   
+    margin-top:0;
+    margin-bottom:0;
+    list-style-type:none;
+  
+    color: white;
+    padding: 6px;
+    min-height:20px;
+}
+.logo{
+width:20%;
+    float:left;
+
+}
+
+#banner{
+width: 100%;
+height: 400px;
+
+}
+
+.cabecalho{
+margin-top:25px;
+width:80%;
+    float:left;
+}
+
+header{
+    border:1px solid black;min-height:95px;
+    box-sizing: border-box;
+    background-color:white;
+}
+
+nav{
+   /*position:absolute;top:30px;*/
+   
+}
+
+
+header nav ul#menu li{
+    margin: 6px;
+    padding: 6px;
+    display: inline;
+    box-sizing: border-box;
+    
+}
+
+header nav ul#menu li:hover{
+    transition:.1s;
+    
+   
+}
+header nav ul#menu li a:hover{
+    transition: color 0.1s;
+     /*color:rgb(24,24,900);*/
+    color:rgb(20,28,97)
+}
+nav ul#menu li a{
+    text-decoration:none;
+    font-weight:500;
+    font-size:25px;
+    color: rgb(127,127,127);
+    /*color:rgba(23,23,84,1)*/
+    
+}
+
+/*menu responsivo*/
+ img#icone-responsivo{
+                display:none;
+            }
+
+#fundo{
+            width: 100%;
+            height: 100%;
+        }
+       
+   
+        /*barra-menu*/
+         #check{
+            /*oculta o input check */
+            display:none;
+        }
+        .barra{
+         
+            /*define a cor de fundo da div barra*/ 
+            background-color:white;
+            /*define que a altura da barra será 100% do navegador*/
+            /*height:100%;*/
+            width:300px;
+            position:absolute;
+            transition:all .2s linear;
+            left:-300px;
+            z-index:1;
+        }
+        .barra nav{
+            width:100%;
+            position:absolute;
+         
+        }
+            .barra nav ul li a{
+            text-decoration: none;
+                font-family:arial;
+            font-size:18pt;
+                color:white;
+            }
+        .link{
+            background-color:rgb(20,28,94);
+            padding:20px;
+            
+            transition:all .2s linear;
+            
+            border-bottom:2px solid white;
+            }
+        .link:hover{
+            background-color: #050542;
+        }
+       
+        #check:checked ~ .barra nav a .link{
+            opacity: 1;
+            margin-top:0;
+            transition-delay: .2s;
+        } 
+
+
+/*medias query*/
+ @media (max-height:480px)
+    {
+        html{
+             background-image:none;
+            background-color:rgb(232,238,240);
+            height: auto;
+        }
+        
+        
+        
+        }
+        @media (max-width:1078px)
+        {
+            nav.cabecalho{
+                display:none;
+            }
+        
+            div.logo img#logomarca {
+                position: absolute;
+                left:40%;
+                right: auto;
+                box-sizing:border-box;
+         
+                margin:0 auto;
+            }
+            img#icone-responsivo{
+                margin-top:-8px;
+                padding-left: 2px;
+                display: block;
+            }
+            
+             #check:checked ~ aside.barra{
+            transform: translateX(300px);
+        }
+            img#icone-responsivo{
+                cursor: pointer;
+            }
+            .barra{
+                cursor:pointer;
+             
+            }
+        }
+
+/*rodapé formatações*/
+
+   div#mapeamento{
+    width:100%;
+    margin-left: 0;
+    clear: both;
+    background-color:white;
+    padding:4px;
+
+    
+}
+div#mapeamento table tr td{
+    padding: 4px;
+}
+
+div#mapeamento table tr td a{
+     color:rgb(0,0,0);
+     text-decoration: none;
+}
+
+
+
+/*Formatações da tabela do rodapé*/
+/*
+div#mapeamento table#tabeladenav{
+   
+    width:100%;
+    margin-left: 13%;
+
+}
+
+
+
+nav#menudorodape table#tabeladenav tr{
+    font-size:18px
+
+}
+div#mapeamento table#tabeladenav tr td{
+
+    width: 14%;
+    text-align: left;
+    /*border: 1px solid black;*/
+ 
+}*/
+footer adress{
+background-color: white;
+width: 100%;
+}
+
+
+/*Formatação Footer */
+ *{
+        font-family: cabrili,sans-serif;
+        font-size: 20px;
+        color:#333;
+        margin:0px;
+        padding:0;
+        
+    }
+    select#navegacao{
+        display:none;
+        height: 30px;
+        position: inherit;
+      
+    }
+    .flutuacao{
+        min-height: 100px;
+        /*border: 1px solid black;*/
+        width: 25%;
+        float: left;
+        box-sizing: border-box;
+        display: block;
+    }
+    footer{
+        background-color:white;
+        min-height:120px;
+        width:100%;
+        box-sizing:border-box;
+        
+    }
+address{
+    box-sizing:border-box;
+    background-color:rgb(20,28,94);
+    color:white;
+}
+    div#mapeamento{
+        width:100%;
+        /*border:1px solid red;*/
+        box-sizing:border-box;
+        min-height:100px
+    }
+
+
+    @media (max-width:1078px)
+    {
+        select#navegacao{
+            display: block;
+            width:100%;
+            position: relative;
+            top:40px;
+            
+        }
+        .flutuacao{
+            display:none;
+        }
+        footer{
+        min-height: 100px;
+        }
+    }
+    .menurodape ul{
+        list-style: none
+    }
+    

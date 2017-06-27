@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Cadastro de Caminhão</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="estiloformcadastros.css"/>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+    
+       
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: arial;
+
+}
+/*formatação bakcground*/    
+body{
+            background-color: rgb(232,238,240);
+        }
+    
+
+
+
+</style>
+   
+</head>
+<body>
+<form action="cadastrodeunidade.php" method="post" class="formulario">
+     <h3 class="titulo">Cadastro de Caminhão</h3>
+<div class="area-formulario" id="area1">
+   
+    <label for="codcaminhao">Código do Caminhão</label>
+    <input type="text" name="codcaminhao" class="texto"  id="codcaminhao" readonly/>
+    
+    <label for="placa">Código da Placa</label>
+    <input type="text" maxlength="8"  name="placa" class="texto" id="placa" onkeypress="formatar('###-####', this)"  />
+     <label for="nomeunidade">Combustível</label>
+     <select name="combustivel" id="combustivel">
+    <option value="0">Selecione o combustível</option>
+       <option value="Diesel">Diesel</option>
+        <option value="Gasolina">Gasolina</option>
+         <option value="Alcool">Alcool</option>
+    </select>
+    
+        <label for="ano_fab">Ano de Fabricação</label>
+    <input type="date" class="texto" name="ano_fab"  id="ano_fab" readonly/>
+    
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="localizar" value="Localizar"/>
+<input type="submit" class="bt_acao" name="btn_cadastrar" value="Salvar"/>
+<input type="submit" class="bt_acao" name="excluir" value="Excluir"/> 
+<input type="submit" class="bt_acao" name="btn_cancelar" value="Cancelar"/>
+</div>
+</form>
+</body>
+</html>

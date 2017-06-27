@@ -1,0 +1,298 @@
+/*formulario*/
+div.area-formulario{
+/*alinha das dvi com classe area-formulario ao mesmo lado*/
+display:inline-block;
+/*border:1px solid red;*/
+
+min-height:236px;
+}
+    
+    
+  
+    
+    
+    
+    
+    
+    
+form{
+    width:80%;
+    margin:0 auto;
+   
+    border:1px solid black;
+ 
+    
+    
+    
+}
+form .titulo{
+    padding-top:4px;
+    
+    text-align:center;
+    margin-bottom:10px;
+    background-color: rgb(20,28,94);
+    min-height:40px;
+    color:white;
+    font-size: 26px
+}
+div#area1{
+    width:70%;
+     min-height: 464px;
+    padding:10px;
+    
+   
+
+}
+div#area2{
+    width:30%;
+    min-height: 464px;
+        padding:10px;
+}
+    
+    div#area2 input{
+         font-size: 13pt;
+    display:block;
+    width:100px;
+    margin-top:20px;
+    min-height:64px;
+          margin-left:auto;
+    margin-right:auto;
+}
+
+
+   fieldset{
+        border:none;
+        width: 80%;
+        margin:0 auto;
+        
+        
+}
+
+    fieldset.tipo-cliente label{
+        
+        width: auto;
+    float: none;
+    text-align: left;
+        padding: 0;
+        display: inline-block;
+        
+        font-size: 11pt;
+          margin-bottom:0px;
+         min-height: 20px;
+        
+}
+fieldset.tipo-cliente{
+width: 18%;
+    
+
+}
+fieldset.tipo-cliente legend{
+font-size: 13pt;
+}
+
+   /*   .tipo-cliente{
+        
+    
+        width: 20%;
+        margin:0 auto 0 20%
+        
+}*/
+
+fieldset.tipo-cliente ul#tipocliente{
+list-style: none;
+}
+
+  input.radcliente{
+
+    
+    
+    font-size:none;
+        margin-bottom:0px;
+    width:auto;
+    font-size:13pt;
+   
+    height:auto;
+   float:none;
+
+    
+    }
+
+
+
+
+.formulario label{ 
+    width:40%; 
+    float:left; 
+    text-align:right;
+
+    padding:15px 15px 0 0;
+    margin-bottom:5px;
+    display:block;
+     /*border:1px solid black;*/
+
+    font-size: 13pt;
+   
+    min-height: 40px;
+    
+    }
+    
+    
+    div#area1 input.texto{
+        margin-bottom:5px;
+    width:60%;
+    font-size:13pt;
+   
+    height:40px;
+   float:right;
+}
+     div#area1 select{
+         margin-bottom:5px;
+    width:60%;
+    font-size:13pt;
+   
+   
+    height:40px;
+   float:right;
+}
+ div#area1 option{
+     font-size: 13pt;
+    
+}
+
+    
+    /*formatação para formularios*/
+   form{
+           
+     
+            box-shadow: 1px  2px 10px;
+            border-radius:6px;
+            min-height:290px;
+            background-color:white;
+            opacity:1;
+       color: black;
+        }
+   input.bt_acao{
+          
+            
+            background-color: rgb(20,28,94);
+       border-radius:6px;
+       padding: 0;
+       outline: none;
+            color:white;
+      
+            
+           
+          
+        }  
+
+    #listaencomenda{
+        border:1px solid black;
+        position: relative;
+        left:0%;
+        width: 80%;
+}
+
+ input#btn_listar{
+        width:20%;height:40px;
+    }
+
+    /*tabela listar encomenda*/
+/*titulo listar encomenda*/
+    table#Lista-Encomenda td{
+        border:1px solid black;
+       
+    }
+    table#Lista-Encomenda{
+        width: 100%;
+         border-collapse:collapse;
+            position: relative;
+          
+        left:0;
+            
+    }
+
+    
+@media (max-width:1180px)
+{
+    div#area1 input.texto
+    {
+        width:100%;
+        float:none;
+        margin-top: 0px;
+        margin-bottom:5px;
+        
+    }
+     div#area1 select
+    {
+        min-width:100%;
+        float:none;
+        margin-top: 0px;
+        margin-bottom:5px;
+        
+    }
+    .formulario label{
+        font-size: 20px;
+        width:100%;
+        float:none;
+        margin-top:5px;
+        margin-bottom:0px;
+       
+        text-align:left;
+    }
+    
+    input.bt_acao{
+        font-size:20px;
+      
+    }
+    div#area1{
+   
+    min-height: 540px
+
+}
+div#area2{
+
+        min-height: 540px
+    }
+    label#listaencomenda
+    {
+        margin-top:0px;
+       
+        float: left;
+        width: 80%;
+        position: relative;
+        left:0%;
+    }
+    #btn_listar{
+         margin-top:0px;
+        margin-bottom: 0px;
+        width: 20%;
+        float: right;
+    }
+    
+    fieldset{
+        width:70%;margin:0 auto
+}
+    
+table#Lista-Encomenda{
+        width: 100%;
+         border-collapse:collapse;
+    position: relative;
+        left:0;
+    }
+    
+       .tipo-cliente{
+        
+    
+        width: 20%;
+        margin:0 auto 0 0%
+        
+}
+fieldset.tipo-cliente{
+width: 50%;
+
+}
+    fieldset.tipo-cliente legend{
+font-size: 20px;
+}
+}
+/*fim formatação formulario*/

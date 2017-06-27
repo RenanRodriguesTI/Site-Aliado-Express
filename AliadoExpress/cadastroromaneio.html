@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Cadastro Romaneio</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="estiloformcadastros.css"/>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+    
+       
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: arial;
+
+}
+/*formatação bakcground*/    
+body{
+            background-color: rgb(232,238,240);
+        }
+    
+
+    
+    .topoform{
+        margin-top: 18px;
+    }
+    
+</style>
+   
+</head>
+<body>
+<form action="cadastroromaneio.php" method="post" class="formulario">
+     <h3 class="titulo">Cadastro de Romaneio</h3>
+<div class="area-formulario" id="area1" style="">
+       <label class="topoform" for="dataemissao">Data de cadastro</label><br>
+<input type="date" class="texto" name="data" id="dataemissao" value="" readonly/>
+    <label for="nome">Código do Romaneio</label>
+    <input type="text" class="texto" name="codromaneio" id="nome"/>
+    
+    <label for="codfun">Motorista</label>
+    <select name="codfun" id="codfun">
+    <option value="0">Selecione o Motorista</option>
+    </select>
+
+ 
+    
+    <label for="codcaminhao">Caminhão</label>
+     <select name="codcaminhao" id="codcaminhao">
+    <option value="0">Selecione o Motorista</option>
+    </select>
+    
+    <label for="codcidorigem">Unidade Origem</label>
+     <select name="codcidorigem" id="codcidorigem">
+    <option value="0">Selecione a Unidade</option>
+         <?=gerarunidades($codcidadorigem);?>
+    </select>
+    <label for="codciddest">Unidade Destino</label>
+    
+     <select name="codciddest" id="codciddest">
+    <option value="0">Selecione a Unidade</option>
+         <?=gerarunidades($codcidaddestino);?>
+    </select>
+    
+    <fieldset  >
+        <label for="btn_listar" id="listaencomenda">Listar Encomendas</label>
+    <input type="submit" id="btn_listar"  style="" name="listaencomenda" value="Listar" />
+        <table id="Lista-Encomenda">
+            <!--
+            <tr><td colspan="2">Encomendas</td></tr>
+            <tr><td>Código</td><td>Nome</td></tr>
+            -->
+        </table>
+    </fieldset>
+    
+    
+    
+    
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="btnlocalizar" value="Localizar"/>
+<input type="submit" class="bt_acao" name="btn_cadastrar" value="Salvar"/>
+<input type="submit" class="bt_acao" name="excluir" value="Excluir"/> 
+<input type="submit" class="bt_acao" name="btn_cancelar" value="Cancelar"/>
+</div>
+    
+</form>
+</body>
+</html>

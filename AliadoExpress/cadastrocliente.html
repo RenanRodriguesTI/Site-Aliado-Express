@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Cadastro de Cliente</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="estiloformcadastros.css"/>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+    
+       
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: arial;
+
+}
+/*formatação bakcground*/    
+body{
+            background-color: rgb(232,238,240);
+        }
+    
+  
+
+
+</style>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            document.getElementById("fisico").onclick = function()
+        {
+                var check = document.getElementById("fisico").checked;
+                if(check == true)
+                    {
+                        document.getElementById("lab_ei_rg").innerHTML="RG";
+                        document.getElementById("labcnpj_cpf").innerHTML="CPF";
+                    }
+        }
+            
+               document.getElementById("juridico").onclick = function()
+        {
+                var check = document.getElementById("juridico").checked;
+                if(check == true)
+                    {
+                        document.getElementById("lab_ei_rg").innerHTML="IE";
+                        document.getElementById("labcnpj_cpf").innerHTML="CNPJ";
+                    }
+        
+               
+               
+               
+               
+               }
+                
+},false)
+    
+    </script>
+   
+</head>
+<body>
+<form action="cadastrocliente.php" method="post" class="formulario">
+     <h3 class="titulo">Cadastro de Cliente</h3>
+<div class="area-formulario" id="area1">
+   
+    <label for="txtcodcli">Código do Cliente</label>
+    <input type="text" class="texto" name="txtcodcli"  id="txtcodcli" readonly />
+    
+    <label for="nome">Nome do Cliente</label>
+    <input type="text" class="texto" name="txtnome" id="nome"/>
+
+    
+    <label for="email">Email</label>
+    <input type="text" class="texto" name="email" id="email" />
+
+    <label for="login">Login</label>
+    <input type="text" class="texto" name="login" id="login"/>
+    
+    <label for="senha">Senha</label>
+    <input type="password" class="texto" name="senha" id="senha" />
+    
+    <label for="confirmarsenha">Confirmar Senha</label>
+    <input type="text" name="confirmarsenha" class="texto" id="confirmarsenha" />
+    
+   
+   
+    <fieldset class="tipo-cliente" style="border:none">
+        <legend>Tipo de cliente</legend>
+        <ul id="tipocliente">
+        <li><input id="fisico" checked type="radio" name="clioption" class="radcliente" value="F" />&nbsp;<label for="fisico">Físico: </label></li>
+        <li><input id="juridico" type="radio" name="clioption"  value="J"  />&nbsp;<label for="juridico"> Juridico:</label></li>        
+        </ul>
+        
+         
+        
+        
+    </fieldset>
+    <label for="razaosoc" id="lab_ei_rg">RG</label>
+    <input type="text" class="texto" id="razaosoc" name="razaosoc_rg" />
+    
+    <label for="cnpj_cpf" id="labcnpj_cpf">CPF</label>
+    <input type="text" class="texto" id="cnpj_cpf" name="cnpj_cpf" />
+    
+    <label for="cep">CEP</label>
+    <input type="text" id="cep" name="cep" class="texto" value="" onblur="formulariocad.submit()" /><br>
+    
+    <label for="endereco" >Endereço</label>
+    <input type="text" id="endereco" class="texto" name="endereco" value=""/>
+        
+    <label for="bairro">Bairro</label>
+    <input type="text" class="texto" id="bairro" name="bairro" value="" />
+        
+    <label for="cidade">Cidade</label>
+    <input id="cidade" type="text" id="cidade" class="texto" name="cidade"  value=""  />
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="localizar" value="Localizar"/>
+<input type="submit" class="bt_acao" name="btn_cadastrar" value="Salvar"/>
+<input type="submit" class="bt_acao" name="excluir" value="Excluir"/> 
+<input type="submit" class="bt_acao" name="btn_cancelar" value="Cancelar"/>
+</div>
+</form>
+</body>
+</html>
