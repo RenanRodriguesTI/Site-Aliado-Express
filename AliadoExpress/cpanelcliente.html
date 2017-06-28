@@ -18,13 +18,17 @@
             background-color:yellow
         }
         #informacoes-usuario{
+           
             background-color: aqua;
             min-height: 300px;
             width:25%;
         }
         #Cpanelusuario{
+         
+            box-sizing:border-box;
             background-color:blue;
             min-height: 300px;
+            width: 50%;
             
         }
         #nomeuserprincipal{
@@ -41,6 +45,38 @@
             position: absolute;
             top:170px;
             right: 10px;
+        }
+        aside#informacoes-usuario h2{
+            font-size: 22px;
+        }
+        
+        aside#informacoes-usuario p{
+            font-size: 16px;
+        }
+        
+        figure#imagem-perfil-secundario{
+            background-color:yellow;
+            min-height:64px;
+            width: 64px;
+            position:relative;
+            
+        }
+        #Cpanelusuario h2#nomeusuario{
+            position:relative;
+            top:-40px;
+            left:68px;
+        }
+        td{
+            border: 1px solid black;
+        }
+        thead{
+            border: 1px solid black;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        .flutuacaocpanel{
+            float:left;
         }
     </style>
 </head>
@@ -104,12 +140,32 @@
             <a id="btn-editar-perfil">Editar</a>
             
             </section>
-            <aside id="informacoes-usuario">
+            <aside id="informacoes-usuario" class="flutuacaocpanel" >
+                <h2>Informações do funcionário</h2>
+                <p>Nome:</p>
+                <p>CPF:</p>
+                <p>RG: </p>
+                <p>Matricula do funcionário: </p>
+                <p>Mora em: </p>
+                <p>Telefone:</p>
+                <p>E-mail:</p>
             </aside>
-            <section id="Cpanelusuario">
-            
+            <section id="Cpanelusuario" class="flutuacaocpanel" style="position:absolute;right:20%">
+                <figure id="imagem-perfil-secundario">
+                
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2>Encomenda</h2>
+                <table>
+                    
+                <thead><td colspan="5">Encomendas Cadastradas</td></thead>
+                    <tbody><tr><td>1</td><td>Presidente Prudente</td><td>São Paulo</td><td>Entregue</td><td><a href="#">Detalhes</a></td></tr>
+                    <td>Código</td><td>Origem</td><td>Destino</td><td>Status</td><td>Detalhes</td>
+                    </tbody>
+                </table>
             </section>
         </section>
+        
     </div>
 </body>
 </html>
