@@ -12,6 +12,36 @@
         div#mapeamento a{
             text-decoration: none;
         }
+        .paineldecontrole{
+            border:1px solid red;
+            width: 70%;
+            margin:0 auto;
+        }
+        .opcoescpanel{
+            border:1px solid black;
+            width:33%;
+            float:left;
+            box-sizing: border-box;
+            
+        }
+        .imagensdopainel{
+            width: 64px;
+            margin: 0 auto 10px auto;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .centro{
+            text-align: center;
+        }
+        .titulocpanelfun{
+            clear: both;
+            background-color:rgb(20,28,94);
+            border-radius:4px;
+            color:white;
+            padding:4px;
+            font-size:20px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -75,8 +105,8 @@
             <a id="btn-editar-perfil">Editar</a>
             
             </section>
-            <aside id="informacoes-usuario" class="flutuacaocpanel" >
-                <h2>Informações do Cliente</h2>
+            <aside id="informacoes-usuario" class="flutuacaocpanel" style="min-height:2000px" >
+                <h2>Informações do Funcionário</h2>
                 <p>Nome:</p>
                 <p>CPF:</p>
                 <p>RG: </p>
@@ -91,16 +121,260 @@
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
                 <h2 class="titulocpanel">Encomenda</h2>
-                <table>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
                     
-                <thead><td colspan="5">Encomendas Cadastradas</td></thead>
-                    <tbody><tr><td class="coluna1">1</td><td class="coluna1">Presidente Prudente</td><td class="coluna1">São Paulo</td><td class="coluna1">Entregue</td><td class="coluna1">Detalhes</td></tr>
-                    <td>Código</td><td>Origem</td><td>Destino</td><td>Status</td><td>Detalhes</td>
-                    </tbody>
-                </table>
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
             </section>
+            
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
+            </section>
+            
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
+            </section>
+            
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
+            </section>
+            
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
+            </section>
+            
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
+            </section>
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <div class="paineldecontrole">
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Cadastrar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                        </figure>
+                        
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3 class="centro">Alterar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                    <div class="opcoescpanel">
+                        <h3>Consultar</h3>
+                        <figure class="imagensdopainel">
+                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        </figure>
+                        
+                    
+                    </div>
+                
+                </div>
+                
+                
+                
+            </section>
+            
         </section>
-         <footer style="">
+         <footer>
     
     <div  id="mapeamento" >
     
