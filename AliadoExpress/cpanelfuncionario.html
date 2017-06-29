@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Nome do Cliente</title>
+    <link rel="stylesheet" href="CSS/estilo.css"/>
+    <link rel="stylesheet" href="CSS/estilocpanel.css"/>
+    <style>
+        #imagem-fundo{
+             background-image:url(IMAGENS/estrada1.png);
+        }
+        div#mapeamento a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="interface">
+            <header>
+            
+            <div class="logo" >
+                <figure >
+                             <a href="home.html"><img id="logomarca" src="IMAGENS/aliadoexpress2.png" alt="Logo" /></a>
+                    
+                    <label style="float:left;margin-top:20px;" id="icone" for="check"><img id="icone-responsivo" src="IMAGENS/menu.png" alt="icone do menu"/></label>
+                </figure>
+            </div>
+                
+            
+            
+        <nav class="cabecalho"  >
+             <ul id="menu" style="">
+        
+                <li><a href="home.html" >Home</a></li>
+                <li><a href="Filiais.html">Filiais</a></li>
+                <li><a href="empresa.html">Empresa</a></li>
+                <li><a href="cotacao.html">Cotação</a></li>
+                <li><a href="trabalheconosco.html">Trabalhe conosco</a></li>
+                <li><a href="faleconosco.html">Fale Conosco</a></li>
+            
+            </ul>    
+        </nav>
+        
+         
+        </header>
+       
+    <input type="checkbox" id="check"/>
+    
+     <aside class="barra">
+        <nav>
+              <ul>
+            
+                <li class="link"><a  href="home.html" >Home</a></li>
+                <li class="link"><a  href="Filiais.html">Filiais</a></li>
+                <li class="link"><a  href="empresa.html">Empresa</a></li>
+                <li class="link"><a  href="cotacao.html">Cotação</a></li>
+                <li class="link"><a  href="trabalheconosco.html">Trabalhe conosco</a></li>
+                <li class="link"><a  href="faleconosco.html">Fale Conosco</a></li>
+                </ul>
+ 
+            
+        
+        </nav>
+    
+    
+    </aside>
+        <section id="conteudo" style="min-height:600px;width:100%">
+        
+            <section id="imagem-fundo">
+               
+            <div id="imagem-perfil">
+                <img src="IMAGENS/userperfil.png" alt="Perfil usuário"/>
+            </div>
+            <h1 id="nomeuserprincipal">Nome do usuário</h1>
+            <a id="btn-editar-perfil">Editar</a>
+            
+            </section>
+            <aside id="informacoes-usuario" class="flutuacaocpanel" >
+                <h2>Informações do Cliente</h2>
+                <p>Nome:</p>
+                <p>CPF:</p>
+                <p>RG: </p>
+                <p>Matricula: </p>
+                <p>Mora em: </p>
+                <p>Telefone:</p>
+                <p>E-mail:</p>
+            </aside>
+            <section id="Cpanelusuario" class="flutuacaocpanel">
+                <figure id="imagem-perfil-secundario">
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
+                </figure>
+                <h2 id="nomeusuario">Nome do usuário</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
+                <table>
+                    
+                <thead><td colspan="5">Encomendas Cadastradas</td></thead>
+                    <tbody><tr><td class="coluna1">1</td><td class="coluna1">Presidente Prudente</td><td class="coluna1">São Paulo</td><td class="coluna1">Entregue</td><td class="coluna1">Detalhes</td></tr>
+                    <td>Código</td><td>Origem</td><td>Destino</td><td>Status</td><td>Detalhes</td>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+         <footer style="">
+    
+    <div  id="mapeamento" >
+    
+    <div class="flutuacao">
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_blank">Home</a></li>
+                <li><a href="filiais.html" target="_blank">Filiais</a></li>
+                <li><a href="empresa.html" target="_blank">Empresa</a></li>
+                <li><a href="cotacao.html" target="_blank">Cotação</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+    </div>    
+    <div class="flutuacao">
+         <nav class="menurodape">
+            <ul>
+                <li><a href="faleconosco.html">Fale Conosco</a></li>
+                <li><a href="trabalheconosco.html">Trabalhe Conosco</a></li>
+                <li><a href="cpanelcliente.html">Encomenda</a></li>
+                <li><a href="cpanelcliente.html">Cliente</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+    </div>
+        <div  class="flutuacao">
+            <nav class="menurodape">
+            <ul>
+                <li><a href="cadastrounidades.html">Unidade</a></li>
+                <li><a href="cadastrocaminhao.html">Caminhão</a></li>
+                <li><a href="cadastroromaneio.html">Romaneio</a></li>
+                <li><a href="cadastrocidade.html">Cidade</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+        
+        </div>
+        <div  class="flutuacao">
+            <nav class="menurodape">
+            <ul>
+                <li><a href="cadastromotorista.html">Motorista</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="login.html">Login</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+        
+        </div>
+        
+        <select id="navegacao"onchange="javascript: abreJanela(this.value)" >
+        <optgroup label="Área de Navegação">
+            <option></option>
+            <option value="index.html">Home</option>
+            <option value="empresa.html">Empresa</option>
+            <option value="filiais.html">Filiais</option>
+            <option value="trabalheconosco.html">Trabalhe Conosco</option>
+            <option value="faleconosco.html">Fale Conosco</option>
+            <option value="chat.html">Chat</option>
+            <option value="cpanelcliente.html">Cliente</option>
+            <option value="cpanelcliente.html">Encomenda</option>
+            <option value="cpanelfuncionario.html">Romaneio</option>
+            <option value="cpanelfuncionario.html">Motorista</option>
+            <option value="cpanelfuncionario.html">Cidade</option>
+            <option value="cpanelfuncionario.html">Unidade</option>
+            <option value="cpanelfuncionario.html">Caminhão</option>
+            <option value="login.html">Login</option>
+            
+            </optgroup>
+            
+            
+        
+        </select>
+        
+    
+    </div>
+   <address>
+
+       
+       TODOS OS DIREITOS RESERVADOS</address>
+  
+   
+    
+    
+    
+</footer>
+    </div>
+</body>
+</html>

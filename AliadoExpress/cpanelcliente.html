@@ -4,148 +4,13 @@
     <meta charset="utf-8" />
     <title>Nome do Cliente</title>
     <link rel="stylesheet" href="CSS/estilo.css"/>
+    <link rel="stylesheet" href="CSS/estilocpanel.css"/>
     <style>
-        h2{
-            font-size:22px;
-        }
         #imagem-fundo{
-            background-color:red;
-            min-height:300px;
-            position: relative;
-            
+             background-image:url(IMAGENS/estrada1.png);
         }
-        footer{box-shadow: 1px 4px 10px black}
-        #imagem-perfil{
-            min-height: 128px;
-            position:relative;
-            top:100px;
-            width:128px;
-      
-        }
-        #informacoes-usuario{
-           
-     
-            min-height: 300px;
-            width:25%;
-        }
-        #Cpanelusuario{
-         
-            
-           
-            min-height: 300px;
-            width: 50%;
-            
-        }
-        #nomeuserprincipal{
-            width:60%;
-            position: relative;
-            top:50px;
-            left:128px;
-            font-size: 25px;
-            color:white;
-            font-weight:bold;
-        }
-    
-        #btn-editar-perfil{
-            background-color: rgba(0,0,0,0.2);
-            padding: 8px;
-            color:white;
-            border:2px solid white;
-            position: absolute;
-            top:170px;
-            right: 10px;
-        }
-        #btn-editar-perfil:hover{
-            /*name da animação*/
-            animation-name:agitabotao;
-            /*Duração da animação*/
-            animation-duration:1s;
-            /*Numero de repetições que a animação será executada*/
-            animation-iteration-count:1;
-            /*Determina o fuxo da animação*/
-            animation-timing-function:linear;
-            /*Atraso da animação */
-            animation-delay: .2s;
-            
-            background-color:rgb(24,28,94);
-            
-            transition:1s;
-        }
-        
-        @keyframes agitabotao{
-            0%{
-                transform:rotate(0);
-            }
-            25%{
-                transform:rotate(10deg);
-            }
-            50%
-            {
-                transform:rotate(0);
-            }
-            75%
-            {
-                transform:rotate(-10deg);
-            }
-            100%{
-                transform:rotate(0);
-            }
-            
-        }
-        
-        
-        
-        
-        aside#informacoes-usuario h2{
-            font-size: 22px;
-            border-bottom:1px solid black;
-            margin-bottom:10px;
-        }
-        
-        aside#informacoes-usuario p{
-            font-size: 18px;
-        }
-        
-        figure#imagem-perfil-secundario{
-    
-            min-height:64px;
-            width: 64px;
-            position:relative;
-            
-        }
-        #Cpanelusuario h2#nomeusuario{
-            position:relative;
-            top:-40px;
-            left:68px;
-        }
-        td{
-            border: 1px solid black;
-            font-size: 18px;
-        }
-        thead{
-            border: 1px solid black;
-            
-            background-color: rgb(20,28,94)
-        }
-        thead tr td{
-            color:white;
-            text-align: center;
-        }
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
-        .flutuacaocpanel{
-            float:left;
-            margin-bottom: 15px;
-            margin-top:6px;
-            padding:5px;
-            border:1px solid #888888;
-            box-sizing:border-box;
-            background-color:white;
-        }
-        footer{
-            clear: both
+        div#mapeamento a{
+            text-decoration: none;
         }
     </style>
 </head>
@@ -199,9 +64,10 @@
     
     
     </aside>
-        <section id="conteudo" style="min-height:600px">
+        <section id="conteudo" style="min-height:600px;width:100%">
         
             <section id="imagem-fundo">
+               
             <div id="imagem-perfil">
                 <img src="IMAGENS/userperfil.png" alt="Perfil usuário"/>
             </div>
@@ -210,25 +76,25 @@
             
             </section>
             <aside id="informacoes-usuario" class="flutuacaocpanel" >
-                <h2>Informações do Funcionário</h2>
+                <h2>Informações do Cliente</h2>
                 <p>Nome:</p>
                 <p>CPF:</p>
                 <p>RG: </p>
-                <p>Matricula do funcionário: </p>
+                <p>Matricula: </p>
                 <p>Mora em: </p>
                 <p>Telefone:</p>
                 <p>E-mail:</p>
             </aside>
-            <section id="Cpanelusuario" class="flutuacaocpanel" style="position:absolute;right:20%">
+            <section id="Cpanelusuario" class="flutuacaocpanel">
                 <figure id="imagem-perfil-secundario">
                     <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
-                <h2 style="position:relative;top:-20px;">Encomenda</h2>
+                <h2 class="titulocpanel">Encomenda</h2>
                 <table>
                     
                 <thead><td colspan="5">Encomendas Cadastradas</td></thead>
-                    <tbody><tr><td>1</td><td>Presidente Prudente</td><td>São Paulo</td><td>Entregue</td><td><a href="#">Detalhes</a></td></tr>
+                    <tbody><tr><td class="coluna1">1</td><td class="coluna1">Presidente Prudente</td><td class="coluna1">São Paulo</td><td class="coluna1">Entregue</td><td class="coluna1">Detalhes</td></tr>
                     <td>Código</td><td>Origem</td><td>Destino</td><td>Status</td><td>Detalhes</td>
                     </tbody>
                 </table>
@@ -241,10 +107,10 @@
     <div class="flutuacao">
         <nav>
             <ul>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
+                <li><a href="index.html" target="_blank">Home</a></li>
+                <li><a href="filiais.html" target="_blank">Filiais</a></li>
+                <li><a href="empresa.html" target="_blank">Empresa</a></li>
+                <li><a href="cotacao.html" target="_blank">Cotação</a></li>
                 
             
             </ul>
@@ -254,10 +120,10 @@
     <div class="flutuacao">
          <nav class="menurodape">
             <ul>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
+                <li><a href="faleconosco.html">Fale Conosco</a></li>
+                <li><a href="trabalheconosco.html">Trabalhe Conosco</a></li>
+                <li><a href="cpanelcliente.html">Encomenda</a></li>
+                <li><a href="cpanelcliente.html">Cliente</a></li>
                 
             
             </ul>
@@ -267,10 +133,10 @@
         <div  class="flutuacao">
             <nav class="menurodape">
             <ul>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
+                <li><a href="cadastrounidades.html">Unidade</a></li>
+                <li><a href="cadastrocaminhao.html">Caminhão</a></li>
+                <li><a href="cadastroromaneio.html">Romaneio</a></li>
+                <li><a href="cadastrocidade.html">Cidade</a></li>
                 
             
             </ul>
@@ -281,10 +147,10 @@
         <div  class="flutuacao">
             <nav class="menurodape">
             <ul>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
-                <li><a>item</a></li>
+                <li><a href="cadastromotorista.html">Motorista</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="login.html">Login</a></li>
                 
             
             </ul>
@@ -294,33 +160,33 @@
         </div>
         
         <select id="navegacao"onchange="javascript: abreJanela(this.value)" >
-        <optgroup label="Cadastro">
+        <optgroup label="Área de Navegação">
             <option></option>
-            <option>Cliente</option>
-            <option>Encomenda</option>
-            <option>Romaneio</option>
-            <option>Motorista</option>
-            <option>Cidade</option>
-            <option>Unidade</option>
-            <option>Caminhão</option>
-            </optgroup>
-            <optgroup label="Consulta">
-                <option></option>
-            <option>Cliente</option>
-            <option>Encomenda</option>
-            <option>Romaneio</option>
-            <option>Motorista</option>
-            <option>Cidade</option>
-            <option>Unidade</option>
-            <option>Caminhão</option>
+            <option value="index.html">Home</option>
+            <option value="empresa.html">Empresa</option>
+            <option value="filiais.html">Filiais</option>
+            <option value="trabalheconosco.html">Trabalhe Conosco</option>
+            <option value="faleconosco.html">Fale Conosco</option>
+            <option value="chat.html">Chat</option>
+            <option value="cpanelcliente.html">Cliente</option>
+            <option value="cpanelcliente.html">Encomenda</option>
+            <option value="cpanelfuncionario.html">Romaneio</option>
+            <option value="cpanelfuncionario.html">Motorista</option>
+            <option value="cpanelfuncionario.html">Cidade</option>
+            <option value="cpanelfuncionario.html">Unidade</option>
+            <option value="cpanelfuncionario.html">Caminhão</option>
             <option value="login.html">Login</option>
+            
             </optgroup>
+            
+            
+        
         </select>
         
     
     </div>
-   <address style="padding:4px;text-align:center;width:100%">
-       <hr style="border:1px solid black;">
+   <address>
+
        
        TODOS OS DIREITOS RESERVADOS</address>
   
