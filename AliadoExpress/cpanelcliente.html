@@ -5,57 +5,109 @@
     <title>Nome do Cliente</title>
     <link rel="stylesheet" href="CSS/estilo.css"/>
     <style>
+        h2{
+            font-size:22px;
+        }
         #imagem-fundo{
             background-color:red;
             min-height:300px;
             position: relative;
+            
         }
+        footer{box-shadow: 1px 4px 10px black}
         #imagem-perfil{
-            min-height: 120px;
+            min-height: 128px;
             position:relative;
             top:100px;
-            width:120px;
-            background-color:yellow
+            width:128px;
+      
         }
         #informacoes-usuario{
            
-            background-color: aqua;
+     
             min-height: 300px;
             width:25%;
         }
         #Cpanelusuario{
          
-            box-sizing:border-box;
-            background-color:blue;
+            
+           
             min-height: 300px;
             width: 50%;
             
         }
         #nomeuserprincipal{
-            background-color:pink;
             width:60%;
             position: relative;
             top:50px;
-            left:120px;
+            left:128px;
+            font-size: 25px;
+            color:white;
+            font-weight:bold;
         }
     
         #btn-editar-perfil{
-            background-color: white;
-            padding: 4px;
+            background-color: rgba(0,0,0,0.2);
+            padding: 8px;
+            color:white;
+            border:2px solid white;
             position: absolute;
             top:170px;
             right: 10px;
         }
+        #btn-editar-perfil:hover{
+            /*name da animação*/
+            animation-name:agitabotao;
+            /*Duração da animação*/
+            animation-duration:1s;
+            /*Numero de repetições que a animação será executada*/
+            animation-iteration-count:1;
+            /*Determina o fuxo da animação*/
+            animation-timing-function:linear;
+            /*Atraso da animação */
+            animation-delay: .2s;
+            
+            background-color:rgb(24,28,94);
+            
+            transition:1s;
+        }
+        
+        @keyframes agitabotao{
+            0%{
+                transform:rotate(0);
+            }
+            25%{
+                transform:rotate(10deg);
+            }
+            50%
+            {
+                transform:rotate(0);
+            }
+            75%
+            {
+                transform:rotate(-10deg);
+            }
+            100%{
+                transform:rotate(0);
+            }
+            
+        }
+        
+        
+        
+        
         aside#informacoes-usuario h2{
             font-size: 22px;
+            border-bottom:1px solid black;
+            margin-bottom:10px;
         }
         
         aside#informacoes-usuario p{
-            font-size: 16px;
+            font-size: 18px;
         }
         
         figure#imagem-perfil-secundario{
-            background-color:yellow;
+    
             min-height:64px;
             width: 64px;
             position:relative;
@@ -68,15 +120,32 @@
         }
         td{
             border: 1px solid black;
+            font-size: 18px;
         }
         thead{
             border: 1px solid black;
+            
+            background-color: rgb(20,28,94)
+        }
+        thead tr td{
+            color:white;
+            text-align: center;
         }
         table{
+            width:100%;
             border-collapse:collapse;
         }
         .flutuacaocpanel{
             float:left;
+            margin-bottom: 15px;
+            margin-top:6px;
+            padding:5px;
+            border:1px solid #888888;
+            box-sizing:border-box;
+            background-color:white;
+        }
+        footer{
+            clear: both
         }
     </style>
 </head>
@@ -130,18 +199,18 @@
     
     
     </aside>
-        <section id="conteudo">
+        <section id="conteudo" style="min-height:600px">
         
             <section id="imagem-fundo">
             <div id="imagem-perfil">
-            
+                <img src="IMAGENS/userperfil.png" alt="Perfil usuário"/>
             </div>
-            <p id="nomeuserprincipal">Nome do usuário</p>
+            <h1 id="nomeuserprincipal">Nome do usuário</h1>
             <a id="btn-editar-perfil">Editar</a>
             
             </section>
             <aside id="informacoes-usuario" class="flutuacaocpanel" >
-                <h2>Informações do funcionário</h2>
+                <h2>Informações do Funcionário</h2>
                 <p>Nome:</p>
                 <p>CPF:</p>
                 <p>RG: </p>
@@ -152,10 +221,10 @@
             </aside>
             <section id="Cpanelusuario" class="flutuacaocpanel" style="position:absolute;right:20%">
                 <figure id="imagem-perfil-secundario">
-                
+                    <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
-                <h2>Encomenda</h2>
+                <h2 style="position:relative;top:-20px;">Encomenda</h2>
                 <table>
                     
                 <thead><td colspan="5">Encomendas Cadastradas</td></thead>
@@ -165,7 +234,101 @@
                 </table>
             </section>
         </section>
+         <footer style="">
+    
+    <div  id="mapeamento" >
+    
+    <div class="flutuacao">
+        <nav>
+            <ul>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                
+            
+            </ul>
         
+        </nav>
+    </div>    
+    <div class="flutuacao">
+         <nav class="menurodape">
+            <ul>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+    </div>
+        <div  class="flutuacao">
+            <nav class="menurodape">
+            <ul>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+        
+        </div>
+        <div  class="flutuacao">
+            <nav class="menurodape">
+            <ul>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                <li><a>item</a></li>
+                
+            
+            </ul>
+        
+        </nav>
+        
+        </div>
+        
+        <select id="navegacao"onchange="javascript: abreJanela(this.value)" >
+        <optgroup label="Cadastro">
+            <option></option>
+            <option>Cliente</option>
+            <option>Encomenda</option>
+            <option>Romaneio</option>
+            <option>Motorista</option>
+            <option>Cidade</option>
+            <option>Unidade</option>
+            <option>Caminhão</option>
+            </optgroup>
+            <optgroup label="Consulta">
+                <option></option>
+            <option>Cliente</option>
+            <option>Encomenda</option>
+            <option>Romaneio</option>
+            <option>Motorista</option>
+            <option>Cidade</option>
+            <option>Unidade</option>
+            <option>Caminhão</option>
+            <option value="login.html">Login</option>
+            </optgroup>
+        </select>
+        
+    
+    </div>
+   <address style="padding:4px;text-align:center;width:100%">
+       <hr style="border:1px solid black;">
+       
+       TODOS OS DIREITOS RESERVADOS</address>
+  
+   
+    
+    
+    
+</footer>
     </div>
 </body>
 </html>
