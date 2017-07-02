@@ -13,12 +13,13 @@
             text-decoration: none;
         }
         .paineldecontrole{
-            border:1px solid red;
+            /*border:1px solid red;*/
             width: 70%;
             margin:0 auto;
         }
         .opcoescpanel{
-            border:1px solid black;
+            /*border:1px solid black;*/
+            
             width:33%;
             float:left;
             box-sizing: border-box;
@@ -27,7 +28,7 @@
         .imagensdopainel{
             width: 64px;
             margin: 0 auto 10px auto;
-            border: 1px solid black;
+           /* border: 1px solid black;*/
             text-align: center;
         }
         .centro{
@@ -41,6 +42,15 @@
             padding:4px;
             font-size:20px;
             margin-bottom: 20px;
+        }
+        #informacoes-usuario{
+            min-height:2225px;   
+        }
+        @media(max-width:1100px)
+        {
+           #informacoes-usuario{
+            min-height:300px;   
+        } 
         }
     </style>
 </head>
@@ -105,7 +115,7 @@
             <a id="btn-editar-perfil">Editar</a>
             
             </section>
-            <aside id="informacoes-usuario" class="flutuacaocpanel" style="min-height:2000px" >
+            <aside id="informacoes-usuario" class="flutuacaocpanel" style="" >
                 <h2>Informações do Funcionário</h2>
                 <p>Nome:</p>
                 <p>CPF:</p>

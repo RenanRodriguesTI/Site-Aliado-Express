@@ -1,5 +1,5 @@
 #slide{
-            background-color:red;
+            background-color:none;
             width: 100%;
            height:340px;
             position: relative;
@@ -17,6 +17,9 @@
             animation-iteration-count:infinite;
 
         }
+.foto img{
+    width:100%;height:340px
+}
         @keyframes apresentacao{
             50%{
                 opacity: 0;

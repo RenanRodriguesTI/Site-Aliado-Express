@@ -196,6 +196,7 @@ nav ul#menu li a{
     clear: both;
     background-color:white;
     padding:4px;
+    box-shadow: 1px 4px 20px black;
 
     
 }

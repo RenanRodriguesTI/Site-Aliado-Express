@@ -10,10 +10,13 @@
     
     <style>
         .post{
+            
+           /* background-color: yellow;
+            
             border:1px solid black;
-            background-color: yellow;
+            */
             width:25%;
-            min-height: 400px;
+            min-height: 300px;
             float:left;
             box-sizing:border-box;
             padding: 6px;
@@ -25,17 +28,25 @@
             
         }
         .textopost{
-            font-size:18pt;
+            font-size:14pt;
             word-wrap: break-word;
-            padding: 0;
+            padding: 4px;
+            min-height: 70px;
+            background-color: white;
+            border-left:1px solid black;
+            border-right:1px solid black;
+            border-bottom:1px solid black;
 
             }
         @media (max-width:1100px)
         {
             .post{
-                  margin-top:10px;
+                  margin:10px auto 5px auto;
+                float:none;
+                width: 70%;
             }
         }
+        
         
     </style>
 </head>
@@ -90,36 +101,65 @@
     
     </aside>
         <div id="slide">
-            <div class="foto" style="min-height:340px;background-color:green"></div>
-            <div class="foto" style="min-height:340px;background-color:yellow"></div>
-            <div class="foto" style="min-height:340px;background-color:blue"></div>
-            <div class="foto" style="min-height:340px;background-color:pink"></div>
+             <figure class="foto" style="min-height:340px;background-color:green">
+                <img src="IMAGENS/caminhaazul.png" alt="caminhao azul"/>
+            </figure>
+            <figure class="foto" style="min-height:340px;background-color:green">
+                <img src="IMAGENS/login.jpg" alt="pessoa utilizando celular e notebook"/>
+            </figure>
+            <figure class="foto" style="min-height:340px;background-color:green">
+                <img src="IMAGENS/romaneio.jpg" alt="teclado com enter personalizado"/>
+            </figure>
+            <figure class="foto" style="min-height:340px;background-color:green">
+                <img src="IMAGENS/estrutura.jpg" alt="Sede da empresa"/>
+            </figure>
+           
+            
            
         
         </div>
         
-         <section id="conteudo">
+         <section id="conteudo" style="min-height:300px">
              
             <section class="post">
-                <h2>Cliente</h2>
-                <div style="min-height:180px;background-color:green"></div>
-                <p class="textopost">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+                <h2>Entrar</h2>
+                <div style="min-height:180px;background-color:none;border:1px solid black;border-bottom:none">
+                    <figure style="width:100%;height:180px">
+                        <img src="IMAGENS/login.jpg" style="width:100%;height:180px"/>
+                    </figure>
+                    
+                </div>
+                <p class="textopost">Acesse sua conta <a href="login.html">Aqui</a>.</p>
             </section>
              
             <section class="post">
                 <h2>Encomenda</h2>
-                <div style="min-height:180px;background-color:green"></div>
-                <p class="textopost">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+                <div style="min-height:180px;background-color:green;box-sizing:border-box">
+                    <figure style="width:100%;height:180px">
+                        <img src="IMAGENS/encomenda.jpg" style="width:100%;height:180px;margin-bottom;0px"/>
+                    </figure>
+                
+                </div>
+                <p class="textopost">Cadastre ou consulte as encomendas cadastradas.<br><a href="#" target="_self">Acesse aqui</a></p>
             </section >
             <section class="post">
                 <h2>Romaneio</h2>
-                <div style="min-height:180px;background-color:green"></div>
-                <p class="textopost">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+                <div style="min-height:180px;background-color:green">
+                    <figure style="width:100%;height:180px">
+                        <img src="IMAGENS/romaneio.jpg" style="width:100%;height:180px;margin-bottom;0px"/>
+                    </figure>
+                </div>
+                <p class="textopost">Emitir e consultar romaneio.<br><a href="#" target="_self">Acesse aqui</a></p>
             </section>
             <section class="post">
-                <h2>Unidades</h2>
-                <div style="min-height:180px;background-color:green"></div>
-                <p class="textopost">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+                <h2>Frota</h2>
+                <div style="min-height:180px;background-color:green">
+                
+                    <figure style="width:100%;height:180px">
+                        <img src="IMAGENS/frota.jpg" style="width:100%;height:180px;margin-bottom;0px"/>
+                    </figure>
+                </div>
+                <p class="textopost">Cadastre ou consulte as frotas.<br><a href="#" target="_self">Acesse aqui</a></p>
             </section>
         </section>
         
