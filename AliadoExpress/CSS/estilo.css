@@ -200,6 +200,10 @@ nav ul#menu li a{
 
     
 }
+
+footer div#mapeamento a{
+text-decoration: none;
+}
 div#mapeamento table tr td{
     padding: 4px;
 }
@@ -273,6 +277,7 @@ address{
     box-sizing:border-box;
     background-color:rgb(20,28,94);
     color:white;
+    text-align: center;
 }
     div#mapeamento{
         width:100%;
@@ -302,3 +307,16 @@ address{
         list-style: none
     }
     
+
+
+
+ 
+footer select option{
+            background-color:white;
+            }
+ footer select optgroup{
+            background-color:rgb(20,28,94);
+            color:white;
+            height: 300px;
+            font-size:20px;
+        }

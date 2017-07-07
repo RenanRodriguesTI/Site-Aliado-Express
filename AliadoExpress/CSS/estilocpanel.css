@@ -60,6 +60,17 @@
             position: absolute;
             top:170px;
             right: 10px;
+            text-decoration:none;
+        }
+#btn-editar-perfil2{
+            background-color: rgba(0,0,0,0.2);
+            padding: 8px;
+            color:white;
+            border:2px solid white;
+            position: absolute;
+            top:170px;
+            right: 75px;
+            text-decoration:none;
         }
         #btn-editar-perfil:hover{
             /*name da animação*/

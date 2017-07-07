@@ -51,8 +51,12 @@
 @media (max-width:1100px){
     #slide{
         top:0;
+        height: 240px
        
         
+    }
+    .foto img{
+        height: 240px
     }
   
     

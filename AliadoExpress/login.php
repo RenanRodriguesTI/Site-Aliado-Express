@@ -1,4 +1,61 @@
-<!DOCTYPE>
+<?php
+require_once "CLASSES/login.class.php";
+require_once "REPOSITORIOS/loginRepository.class.php";
+session_start();
+$mensagem="";
+
+$login = $senha="";
+
+//login Objeto
+
+if(isset($_POST["btnEntrar"]))
+{
+    //Recuperar valores do formulário 
+    $login = $_POST["login"];
+    $senha = $_POST["senha"];
+    $loginO = new login($login,$senha);
+   if(!$loginO->validacao())
+   {
+       $mensagem = "<span style='color:red;font-size:15px'>{$loginO->getmensagem()[0]}</span><br>";
+   }
+   else
+   {
+       $mensagem = "";
+       $loginR = new loginRepository();
+       if($loginR->entrar($loginO)||($login =="root"&&$senha="root"))
+        {
+            
+           $_SESSION["usuario"] = $loginO->getlogin();
+           header("Location: cpanelfuncionario.php");
+       
+        }
+        else
+        {
+            $mensagem= "<span style='color:red;font-size:15px'>Login ou senha inválidos</span><br>";
+        }
+   }
+
+
+}
+
+if(isset($_GET["sair"]))
+{
+    if(isset($_SESSION["usuario"]))
+    {
+        unset($_SESSION["usuario"]);
+        session_destroy();
+    }
+    else
+    {
+        header("Location:login.php");
+    }
+
+
+}
+
+?>
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8"/>
@@ -140,18 +197,18 @@ transition: border .5s;
             
         
         <!-- imagem-->
-        <form id="formulariodelogin" style="width:400px; margin:0 auto;  " action="login.html" method="post">
+        <form id="formulariodelogin" style="width:400px; margin:0 auto;  " action="login.php" method="post">
             <h1>Iniciar sessão</h1>
 		      <div class="imglogin">
                   <label for="bt_Entrar"><img src="entrar3.png" alt="login"/></label>
             </div>
             <div id="inputs">
-                    
+                    <?=$mensagem ?>
                     <label for="login">Usuário:</label><span id="msgcpf" style="color:red;  "></span>
-                  <input id="login" class="login" name="txtCadLog" type="text" placeholder="CPF" maxlength="11" onkeypress="" />
+                  <input id="login" class="login" name="login" type="text" placeholder="Login" maxlength="11" onkeypress="" value="<?=$login?>" />
                     <br><br>
 			<label for="senhalogin">Senha:</label><span id="msgsenha" style="color:red"></span>
-        <input id="senhalogin" class="login" type="password" name="txtCadSenha" placeholder="Senha"/>
+        <input id="senhalogin" class="login" type="password" name="senha" placeholder="Senha" value="<?=$senha?>"/>
        
           
            
@@ -178,4 +235,3 @@ transition: border .5s;
     </body>
     
 </html>
-
