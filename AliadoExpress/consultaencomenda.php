@@ -7,6 +7,7 @@ session_start();
     $cidade = $estado = $usuario = "";
     $id= $idestado = 0;
     $mensagem="";
+$tabela="";
    
 if(isset($_SESSION["usuario"]))
 {
@@ -27,7 +28,7 @@ else
     <title><?=$usuario?></title>
     <link rel="stylesheet" href="CSS/estilo.css"/>
     <link rel="stylesheet" href="CSS/estilocpanel.css"/>
-    <link rel="stylesheet" href="CSS/estiloformcadastros.css" />
+    <link rel="stylesheet" href="CSS/estiloformconsultas.css" />
     <style>
         label{
             font-size: 10px;
@@ -250,7 +251,32 @@ else
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
                
-                
+                <form action="consultacidade.php" method="post" class="formulario">
+     <h3 class="titulo">Consulta de cidades</h3>
+<div class="area-formulario" id="area1">
+   
+    <label for="nome">Pesquisa</label>
+    <input type="text" class="texto" name="codfun" id="nome"/>
+     
+
+    
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="localizar" value="Localizar"/>
+
+</div>
+                    
+     <fieldset id="itens-listagem"  >
+       
+        <table id="listagem">
+            
+            <tr><th colspan="4">Cidades</th></tr>
+            <tr><td>Código</td><td>Nome</td><td>UF</td><td>Operação</td></tr>
+            <?=$tabela?>
+        </table>
+    </fieldset>
+</form>
 
                 
                 
