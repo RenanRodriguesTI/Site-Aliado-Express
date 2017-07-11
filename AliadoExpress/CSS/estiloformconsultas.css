@@ -4,7 +4,7 @@ div.area-formulario{
 display:inline-block;
 /*border:1px solid red;*/
 
-min-height:236px;
+height: 60px;
 }
     
     
@@ -18,9 +18,10 @@ min-height:236px;
 form{
     width:80%;
     margin:0 auto;
-   
+   min-height: 464px;
     border:1px solid black;
  
+    box-sizing:border-box;
     
     
     
@@ -37,16 +38,21 @@ form .titulo{
 }
 div#area1{
     width:70%;
-     min-height: 464px;
+  
     padding:10px;
+    box-sizing:border-box;
+    /*border: 1px solid red;*/
+    
     
    
 
 }
 div#area2{
     width:30%;
-    min-height: 464px;
+
         padding:10px;
+    /*border: 1px solid black;*/
+    box-sizing: border-box;
 }
     
     div#area2 input{
@@ -62,7 +68,8 @@ div#area2{
         border:none;
         width: 100%;
         margin:0 auto;
-        
+        padding: 5px;
+       box-sizing:border-box;
         
 }
 
@@ -119,13 +126,13 @@ list-style: none;
 
 
 .formulario label{ 
-    width:40%; 
+    width:20%; 
     float:left; 
     text-align:right;
 
     padding:15px 15px 0 0;
     margin-bottom:5px;
-    display:block;
+    box-sizing: border-box;
      /*border:1px solid black;*/
 
     font-size: 13pt;
@@ -137,11 +144,12 @@ list-style: none;
     
     div#area1 input.texto{
         margin-bottom:5px;
-    width:60%;
+    width:80%;
     font-size:13pt;
-   
+   /*border:1px solid black;*/
+    box-sizing: border-box;
     height:40px;
-   float:right;
+   float:left;
 }
      div#area1 select{
          margin-bottom:5px;
@@ -160,9 +168,9 @@ list-style: none;
     
     /*formatação para formularios*/
    form{
-           
+           width: 100%;
      
-            box-shadow: 1px  2px 10px;
+            box-shadow: 1px  2px 5px;
             border-radius:6px;
             min-height:290px;
             background-color:white;
@@ -196,13 +204,13 @@ list-style: none;
        
     }
     table#listagem{
-        width: 60%;
-        left: -40%;
-        margin:0 auto 0 40%;
+        width: 100%;
+      
+     
          border-collapse:collapse;
             
           
-        left:0;
+       
             
     }
 table#listagem tbody tr:nth-child(2n+1)
@@ -213,17 +221,64 @@ color:white;
 text-align: center;
 font-weight:bold;
 }
-    table#listagem td,th{
+
+/*variação de cores do link*/
+table#listagem tr:nth-child(2n+1) a
+{
+    color: white;
+    text-decoration:none;
+    
+}
+
+table#listagem tr:nth-child(2n+1) td
+{
+    color:white;
+}
+
+table#listagem tr a{
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+    table#listagem tr td,th{
         padding: 2px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 13pt;
+        border: 1px solid black;
       
     }
 table#listagem th{
 font-size: 13pt;
 }
 
+#Cpanelusuario{
+    width:60%;height:636px;
+}
     
 @media (max-width:1180px)
 {
+    #informacoes-usuario{
+        width: 100%;
+    }
+    #Cpanelusuario{
+        width: 100%;
+    }
+    div.area-formulario{
+/*alinha das dvi com classe area-formulario ao mesmo lado*/
+display:block;
+    
+/*border:1px solid red;*/
+
+height: 80px;
+}
+    div#area1{
+        width: 100%;
+    }
+    div#area2{
+        width: 100%;
+    }
     div#area1 input.texto
     {
         width:100%;
@@ -239,6 +294,7 @@ font-size: 13pt;
         margin-top: 0px;
         margin-bottom:5px;
         
+        
     }
     .formulario label{
         font-size: 20px;
@@ -251,18 +307,14 @@ font-size: 13pt;
     }
     
     input.bt_acao{
-        margin-top: 44px;
+    
         font-size:20px;
       
     }
-    div#area1{
-   
-    min-height: 540px
-
-}
+    
 div#area2{
    
-        min-height: 540px
+      
     }
     label#listaencomenda
     {

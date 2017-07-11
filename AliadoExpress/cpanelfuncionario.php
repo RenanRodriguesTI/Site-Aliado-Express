@@ -148,7 +148,7 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <a href="cadastrocidade.html" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
+                            <a href="cadastrocidade.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
                         </figure>
                         
                     </div>

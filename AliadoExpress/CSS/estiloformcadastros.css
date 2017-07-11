@@ -16,7 +16,7 @@ min-height:236px;
     
     
 form{
-    width:80%;
+    width:100%;
     margin:20px auto;
    
     border:1px solid black;
@@ -38,7 +38,9 @@ form .titulo{
 div#area1{
     width:70%;
      min-height: 464px;
-    padding:10px;
+  
+    /*border: 1px solid red;*/
+    box-sizing:border-box;
     
    
 
@@ -47,6 +49,8 @@ div#area2{
     width:30%;
     min-height: 464px;
         padding:10px;
+    /*border: 1px solid red;*/
+    box-sizing:border-box;
 }
     
     div#area2 input{
@@ -128,8 +132,8 @@ list-style: none;
     padding:15px 15px 0 0;
     margin-bottom:5px;
     display:block;
-     /*border:1px solid black;*/
-
+     /*border:2px solid black;*/
+    box-sizing:border-box;
     font-size: 13pt;
    
     min-height: 40px;
@@ -141,7 +145,7 @@ list-style: none;
         margin-bottom:5px;
     width:60%;
     font-size:13pt;
-   
+   box-sizing: border-box;
     height:40px;
    float:right;
 }
@@ -164,8 +168,8 @@ list-style: none;
    form{
            
      
-            box-shadow: 1px  2px 10px;
-            border-radius:6px;
+            
+            border-radius:3px;
             min-height:290px;
             background-color:white;
             opacity:1;
@@ -270,7 +274,8 @@ div#area2{
     }
     
     fieldset{
-        width:70%;margin:0 auto
+        width:70%;
+        margin:0 auto
 }
     
 table#Lista-Encomenda{
@@ -288,7 +293,8 @@ table#Lista-Encomenda{
         
 }
 fieldset.tipo-cliente{
-width: 50%;
+width: 100%;
+    border: 1px solid black;
 
 }
     fieldset.tipo-cliente legend{

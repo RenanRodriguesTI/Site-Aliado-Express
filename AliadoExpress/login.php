@@ -38,7 +38,7 @@ if(isset($_POST["btnEntrar"]))
 
 }
 
-if(isset($_GET["sair"]))
+if(isset($_GET["btn"]))
 {
     if(isset($_SESSION["usuario"]))
     {

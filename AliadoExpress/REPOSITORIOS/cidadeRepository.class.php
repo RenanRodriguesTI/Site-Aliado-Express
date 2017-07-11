@@ -1,5 +1,6 @@
 <?php
 require_once "banco.php";
+require_once "CLASSES/cidade.class.php";
 //Classe cidadeRepostory é responsável pelas alterações no banco
     class cidadeRepository{
         //insere dados da tabela cidade
@@ -59,7 +60,7 @@ require_once "banco.php";
                 //Prepara o comando sql para excluir dados da tabela cidade
                 $comando = $pdo->prepare("delete from cidade  where cod_cidade = :cod");
                 //atribui valor ao parametro :cod
-                $comando->bindValue(":cod",$cidade->getCodcidade());
+                $comando->bindValue(":cod",$cod);
                 //executa o comando sql
                 $comando->execute();
                 //fecha a conexão
@@ -144,5 +145,28 @@ require_once "banco.php";
                 Desconectar($pdo);
             }
         }
+
+        //Localizar tudo
+        public function buscacompleta()
+        {
+            try{
+                $cidadeO = array();
+                $pdo = Conectar();
+                $comando = $pdo->prepare("select * from cidade");
+                $comando->execute();
+                while($linha = $comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $cidadeO[] = new cidade($linha["COD_CIDADE"],$linha["NOME_CIDADE"],$linha["UF_CIDADE"]); 
+                }
+                Desconectar($pdo);
+                return $cidadeO ;
+
+            }
+            catch(Exception $erro)
+            {
+
+            }
+        }
+
     }
 ?>

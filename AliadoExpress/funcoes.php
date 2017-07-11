@@ -2,7 +2,7 @@
 
 <?php
 
-require_once "banco.php";
+require_once "REPOSITORIOS/banco.php";
 
 //
 function busca_cep($cep){  
@@ -116,32 +116,45 @@ function gerarInputs($qtde, $numeros){
     }
 }
 
-function gerarOptionCidades($idestado, $idcidade){
+function gerarOptionCidades($estado, $cidade){
     if (file_exists("cidades.txt")){
+        $idcidade = "";
         $idarq = fopen("cidades.txt", "r");
         fgets($idarq);
         while (!feof($idarq)){
             $linha = fgets($idarq);
             $vet = explode("|", $linha);
-            if(trim($vet[2]) == $idestado){
-                $sel = $vet[0] == $idcidade ? " selected":"";
-                echo "<option value='{$vet[2]}'$sel>{$vet[1]}</option>";
+            if(trim($vet[2]) == $estado){
+                $sel = $vet[1] == $cidade ? "selected":"";
+                if($sel == "selected")
+                {
+                    $idcidade = $vet[0];
+                }
+                echo "<option value='{$vet[1]}'$sel>{$vet[1]}</option>";
             }
         }
         fclose($idarq);
+        return $idcidade;
     }
 }
-function gerarOptionEstados($idestado=0){
+function gerarOptionEstados($estado=0){
     if (file_exists("estados.txt")){
+        $idestado="";
         $idarq = fopen("estados.txt", "r");
         fgets($idarq);
         while (!feof($idarq)){
             $linha = fgets($idarq);
             $vet = explode("|", $linha);
-            $sel = $vet[0] == $idestado ? " selected":"";
-            echo "<option value='{$vet[0]}'$sel>{$vet[1]}</option>";
+            $sel = $vet[2] == $estado ? "selected":"";
+            if($sel == "selected")
+            {
+                $idestado = $vet[0];
+            }
+            echo "<option value='{$vet[2]}'$sel>{$vet[1]}</option>";
         }
+    
         fclose($idarq);
+        return $idestado;
     }
 }
 
