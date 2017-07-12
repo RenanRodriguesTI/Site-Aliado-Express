@@ -167,6 +167,28 @@ require_once "CLASSES/cidade.class.php";
 
             }
         }
+        public function retornanomedacidade($cod){
+            try{
+                $pdo = Conectar();
+                $cidade = "";
+                $comando = $pdo->prepare("select NOME_CIDADE,COD_CIDADE from cidade where COD_CIDADE = :COD");
+                $comando->bindValue(":COD",$cod);
+                $comando->execute();
+                if($linha=$comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $cidade = new cidade();
+                    $cidade->setCodcidade($linha["COD_CIDADE"]);
+                    $cidade->setNomecidade($linha["NOME_CIDADE"]);
+                }
+                Desconectar($pdo);
+                return $cidade;
+
+            }
+            catch(Exception $erro)
+            {
+                Desconectar($pdo);
+            }
+        }
 
     }
 ?>

@@ -154,16 +154,16 @@ else
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
-                        <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                        <figure class="imagensdopainel" >
+                           <a href="cadastrocidade.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/></a>
                         </figure>
                         
                     
                     </div>
                     <div class="opcoescpanel">
-                        <h3>Consultar</h3>
-                        <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                        <h3 class="centro">Consultar</h3>
+                        <figure class="imagensdopainel" >
+                            <a href="consultacidade.php"><img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/></a>
                         </figure>
                         
                     
@@ -185,7 +185,7 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                           <a href="cadastrounidade.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
                         </figure>
                         
                     </div>

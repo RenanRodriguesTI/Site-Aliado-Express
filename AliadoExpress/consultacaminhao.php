@@ -1,6 +1,6 @@
 <?php
-require_once "CLASSES/cidade.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
+require_once "CLASSES/caminhao.class.php";
+require_once "REPOSITORIOS/caminhaoRepository.class.php";
 require_once "funcoes.php";
 
 session_start();
@@ -18,7 +18,22 @@ else
     header("Location: login.php");
 }
 
+if(isset($_POST["localizar"]))
+{
+    $caminhaoR = new caminhaoRepository();
+    $resultado = $caminhaoR->localizartudo();
+    $tabela = montartabela($resultado);
+}
 
+function montartabela($resultado)
+{
+    $tabela = "";
+    foreach($resultado as $caminhao)
+    {
+        $tabela .="<tr><td>{$caminhao->getIdcaminhao()}</td><td>{$caminhao->getCodplaca()}</td><td>{$caminhao->getcombustivel()}</td><td>{$caminhao->getAnofab()}</td><td><a href='cadastrocaminhao.php?id={$caminhao->getIdcaminhao()}'>Mais</a></td></tr>";
+    }
+    return $tabela;
+}
 ?>
 
 <!DOCTYPE html>
@@ -251,12 +266,12 @@ else
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
                
-                <form action="consultacidade.php" method="post" class="formulario">
+                <form action="consultacaminhao.php" method="post" class="formulario">
      <h3 class="titulo">Consulta de Frotas</h3>
 <div class="area-formulario" id="area1">
    
     <label for="nome">Pesquisa</label>
-    <input type="text" class="texto" name="codfun" id="nome"/>
+    <input type="text" class="texto" name="pesquisa" id="nome"/>
      
 
     

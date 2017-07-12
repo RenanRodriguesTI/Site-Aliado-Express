@@ -55,5 +55,22 @@ require_once "cidade.class.php";
         //alterar pois será necessário implementar o objeto
 		$this->codcidade = $cidade;
 	}
+
+    public function validacao()
+    {
+        $this->mensagem = array();
+        if($this->nomeunidade == "")
+        {
+            $this->mensagem[] = "Informe o nome da unidade";
+        }
+        else
+        {
+            if(is_numeric($this->nomeunidade))
+            {
+                $this->mensagem[] = "O nome da unidade é composto de letras e números";
+            }
+        }
+        return empty($this->mensagem);
+    }
  }
 ?>

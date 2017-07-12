@@ -1,11 +1,11 @@
 <?php
-require_once "CLASSES/cidade.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
+require_once "CLASSES/caminhao.class.php";
+require_once "REPOSITORIOS/caminhaoRepository.class.php";
 require_once "funcoes.php";
 
 session_start();
-    $cidade = $estado = $usuario = "";
-    $id= $idestado = 0;
+    $combustivel = $placa = $usuario = "";
+    $codigocaminhao = $anofabricacao ="";
     $mensagem="";
    
 if(isset($_SESSION["usuario"]))
@@ -17,6 +17,22 @@ else
     header("Location: login.php");
 }
 
+if(isset($_POST["btn_cadastrar"]))
+{
+    
+    $codigocaminhao = $_POST["codcaminhao"];
+    $placa = $_POST["placa"];
+    $combustivel = $_POST["combustivel"];
+    $anofabricacao = $_POST["ano_fab"];
+    $caminhao = new caminhao($codigocaminhao,$placa,$anofabricacao,$combustivel);
+    $caminhaoR = new caminhaoRepository();
+    $caminhaoR->gravar($caminhao);
+}
+
+if(isset($_POST["localizar"]))
+{
+    header("Location: consultacaminhao.php");
+}
 
 ?>
 
@@ -108,6 +124,18 @@ else
               border:2px solid rgb(20,28,94)
         }
     </style>
+    <script>
+function formatar(mascara, documento){
+  var i = documento.value.length;
+  var saida = mascara.substring(0,1);
+  var texto = mascara.substring(i)
+  
+  if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+  }
+  
+}
+</script>
 </head>
 <body>
     <div id="interface">
@@ -214,15 +242,15 @@ else
                 <h2 id="nomeusuario">Nome do usuário</h2>
                
                 
-              <form action="cadastrodeunidade.php" method="post" class="formulario">
+              <form action="cadastrocaminhao.php" method="post" class="formulario">
      <h3 class="titulo">Cadastro de Caminhão</h3>
 <div class="area-formulario" id="area1">
    
     <label for="codcaminhao">Código </label>
-    <input type="text" name="codcaminhao" class="texto"  id="codcaminhao" readonly/>
+    <input type="text" name="codcaminhao" class="texto"  id="codcaminhao"  value="<?=$codigocaminhao?>" readonly/>
     
     <label for="placa"> Placa</label>
-    <input type="text" maxlength="8"  name="placa" class="texto" id="placa" onkeypress="formatar('###-####', this)"  />
+    <input type="text" maxlength="8"  name="placa" class="texto" id="placa" onkeypress="formatar('###-####', this)" value="<?=$placa?>"  />
      <label for="nomeunidade">Combustível</label>
      <select name="combustivel" id="combustivel">
     <option value="0">Selecione o combustível</option>
@@ -232,7 +260,7 @@ else
     </select>
     
         <label for="ano_fab">Ano de Fabricação</label>
-    <input type="date" class="texto" name="ano_fab"  id="ano_fab" readonly/>
+    <input type="date" class="texto" name="ano_fab"  id="ano_fab" value="<?=$anofabricacao?>" />
     
 </div>
 <div class="area-formulario" id="area2" style="float:right">

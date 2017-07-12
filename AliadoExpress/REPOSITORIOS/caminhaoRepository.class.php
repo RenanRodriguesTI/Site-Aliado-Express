@@ -20,6 +20,7 @@
             //o parametro :anofabricacao recebe o atributo ano de fabricação do objeto caminhao
             $comando->bindValue(":anofabricacao",$caminhao->getAnofab());
             //executa o comando sql com parametros definidos acima
+           
             $comando->execute();
 
             //destroi o objeto pdo
@@ -86,6 +87,28 @@
 
             }
             catch(Exception $e)
+            {
+                Desconectar($pdo);
+            }
+        }
+
+
+        public function localizartudo()
+        {
+            try{
+                $caminhao="";
+                $pdo = Conectar();
+                $comando = $pdo->prepare("select * from caminhao");
+                $comando->execute();
+                while($linha = $comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $caminhao[] = new caminhao($linha["COD_CAMINHAO"],$linha["PLACA_CAMINHAO"],$linha["ANOFABRICACAO_CAMINHAO"],$linha["COMBUSTIVEL_CAMINHAO"]);
+                }
+                Desconectar($pdo);
+                return $caminhao;
+
+            }
+            catch(Exception $erro)
             {
                 Desconectar($pdo);
             }

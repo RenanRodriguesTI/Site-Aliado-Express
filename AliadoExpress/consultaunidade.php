@@ -1,6 +1,8 @@
 <?php
+require_once "CLASSES/unidade.class.php";
 require_once "CLASSES/cidade.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
+require_once "REPOSITORIOS/cidadeRepOsitory.class.php";
+require_once "REPOSITORIOS/unidadeRepository.class.php";
 require_once "funcoes.php";
 
 session_start();
@@ -17,7 +19,27 @@ else
     header("Location: login.php");
 }
 
-
+if(isset($_POST["localizar"]))
+{
+ $unidadeR = new unidadeRepository();
+ $resultado = $unidadeR->localizartudo();
+ $tabela=montartabela($resultado);
+}
+function montartabela($resultado){
+     $cidadeR = new cidadeRepository();
+     $tabela="";
+    foreach($resultado as $unidades)
+    {
+        $cidade = $cidadeR->retornanomedacidade($unidades->getCidade()->getCodcidade());
+      
+       if($cidade != "")
+       {
+            $tabela .="<tr><td>{$unidades->getCodunidade()}</td><td>{$unidades->getNomeunidade()}</td><td>{$cidade->getNomecidade()}</td><td><a href='cadastrounidade.php?id={$unidades->getCodunidade()}'>Mais</a></td></tr>";
+       }
+        
+    }
+    return $tabela;
+}
 ?>
 
 <!DOCTYPE html>
@@ -115,36 +137,7 @@ else
     }
     </style>
     
-        <script>
-        document.addEventListener("DOMContentLoaded",function(){
-            document.getElementById("fisico").onclick = function()
-        {
-                var check = document.getElementById("fisico").checked;
-                if(check == true)
-                    {
-                        document.getElementById("lab_ei_rg").innerHTML="RG";
-                        document.getElementById("labcnpj_cpf").innerHTML="CPF";
-                    }
-        }
-            
-               document.getElementById("juridico").onclick = function()
-        {
-                var check = document.getElementById("juridico").checked;
-                if(check == true)
-                    {
-                        document.getElementById("lab_ei_rg").innerHTML="IE";
-                        document.getElementById("labcnpj_cpf").innerHTML="CNPJ";
-                    }
-        
-               
-               
-               
-               
-               }
-                
-},false)
-    
-    </script>
+      
 </head>
 <body>
     <div id="interface">

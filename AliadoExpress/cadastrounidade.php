@@ -1,11 +1,12 @@
 <?php
+require_once "CLASSES/unidade.class.php";
+require_once "REPOSITORIOS/unidadeRepository.class.php";
 require_once "CLASSES/cidade.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
 require_once "funcoes.php";
 
 session_start();
-    $cidade = $estado = $usuario = "";
-    $id= $idestado = 0;
+    $cidade = $nomeunidade = $usuario = "";
+    $id= $idcidade = 0;
     $mensagem="";
    
 if(isset($_SESSION["usuario"]))
@@ -17,9 +18,31 @@ else
     header("Location: login.php");
 }
 
+if(isset($_POST["btn_cadastrar"]))
+{
+    $id = $_POST["coduni"];
+    $nomeunidade = $_POST["nomeunidade"];
+    $cidade = $_POST["codcidade"];
+    $cidadeO = new cidade();
+    $cidadeO->setCodcidade($cidade);
+    $unidade = new unidade($id,$cidadeO,$nomeunidade);
+    $unidadeR = new unidadeRepository();
+    $unidadeR->gravar($unidade); 
+}
+if(isset($_POST["localizar"]))
+{
+    header("LOcation: consultaunidade.php");
+}
 
+if(isset($_GET["id"]))
+{
+    $id = $_GET["id"];
+    $unidadeR = new unidadeRepository();
+    $unidade = $unidadeR->localizarcodunidade($id);
+    $nomeunidade = $unidade->getNomeunidade();
+    $idcidade = $unidade->getCidade()->getCodcidade();
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -214,19 +237,19 @@ else
                 <h2 id="nomeusuario">Nome do usuário</h2>
                
                 
-               <form action="cadastrodeunidade.php" method="post" class="formulario">
+               <form action="cadastrounidade.php" method="post" class="formulario">
      <h3 class="titulo">Cadastro de Unidade</h3>
 <div class="area-formulario" id="area1">
    
     <label for="coduni">Código da Unidade</label>
-    <input type="text" class="texto" name="coduni" id="coduni" readonly/>
+    <input type="text" class="texto" name="coduni" id="coduni" value="<?=$id?>" readonly/>
     
     <label for="nomeunidade" class="texto">Nome da Unidade</label>
-    <input type="text" name="nomeunidade" class="texto" id="nomeunidade"/>
+    <input type="text" name="nomeunidade" class="texto" id="nomeunidade" value="<?=$nomeunidade?>"/>
      <label for="nomeunidade">Cidade</label>
      <select name="codcidade" id="codcidade">
-    <option value="0">Selecione a Cidade</option>
-        <?=carregacidade($codcidade)?>
+    <option value="00">Selecione a Cidade</option>
+        <?=carregacidade($idcidade)?>
     </select>
     
     

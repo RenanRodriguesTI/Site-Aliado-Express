@@ -1,6 +1,6 @@
 <?php
     require_once "banco.php";
-    require_once "unidade.class.php";
+    require_once "CLASSES/unidade.class.php";
     class unidadeRepository{
         public function gravar($unidade){
             try{
@@ -54,6 +54,7 @@
         }
         public function localizarcodunidade($cod)
         {
+            $unidade = "";
             try{
                 $pdo = Conectar();
                 $comando = $pdo ->prepare("select * from unidades where cod_unidade =:cod ");
@@ -61,9 +62,13 @@
                 $comando->execute();
                 if($linha = $comando->fetch(PDO::FETCH_ASSOC))
                 {
-                    return $linha;
+                    $cidade = new cidade();
+                    $cidade->setCodcidade($linha["COD_CIDADE"]);
+                    $unidade = new unidade($linha["COD_UNIDADE"],$cidade,$linha["NOME_UNIDADE"]);
+                    
                 }
                 Desconectar($pdo);
+                return $unidade;
 
             }
             catch(Exception $erro)
@@ -113,6 +118,26 @@
             }
         }
 
+        public function localizartudo()
+        {
+            try{
+                $unidade = "";
+                $pdo = Conectar();
+                $comando = $pdo->prepare("select * from unidades ");
+                $comando->execute();
+                while($linha = $comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $cidade[] = new cidade();
+                    $cidade[count($cidade)-1]->setCodcidade($linha["COD_CIDADE"]);
+                    $unidade[] = new unidade($linha["COD_UNIDADE"],$cidade[count($cidade)-1],$linha["NOME_UNIDADE"]);
+                }
+                Desconectar($pdo);
+                return $unidade;
+            }
+            catch(Exception $erro)
+            {
 
+            }
+        }
     }
 ?>
