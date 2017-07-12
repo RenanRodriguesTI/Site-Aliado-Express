@@ -206,13 +206,14 @@ list-style: none;
     table#listagem{
         width: 100%;
       
-     
+       
          border-collapse:collapse;
             
           
        
             
     }
+
 table#listagem tbody tr:nth-child(2n+1)
 {
 background-color: rgb(20,28,94);

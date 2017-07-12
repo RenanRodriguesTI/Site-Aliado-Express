@@ -225,9 +225,9 @@ else
                         <li><a href="consultafuncionario.php" target="_self">Consulta de Funcionário</a></li>
                         <li><a href="cadastrocliente.php" target="_self">Cadastro de Cliente</a></li>
                         <li><a href="consultacliente.php" target="_self">Consulta de Cliente</a></li>
-                        <li><a href="cadastroerncomenda.php" target="_self">Cadastro de Encomenda</a></li>
+                        <li><a href="cadastroencomenda.php" target="_self">Cadastro de Encomenda</a></li>
                         <li><a href="consultaencomenda.php" target="_self">Consulta de Encomenda</a></li>
-                        <li><a href="cadastroroamenio.php" target="_self">Emitir Romaneio</a></li>
+                        <li><a href="cadastroromaneio.php" target="_self">Emitir Romaneio</a></li>
                         <li><a href="consultaromaneio.php" target="_self">Consultar Romaneio</a></li>
                     </ul>
                 
@@ -252,7 +252,7 @@ else
                 <h2 id="nomeusuario">Nome do usuário</h2>
                
                 <form action="consultacidade.php" method="post" class="formulario">
-     <h3 class="titulo">Consulta de cidades</h3>
+     <h3 class="titulo">Consulta de Encomendas</h3>
 <div class="area-formulario" id="area1">
    
     <label for="nome">Pesquisa</label>
@@ -271,8 +271,8 @@ else
        
         <table id="listagem">
             
-            <tr><th colspan="4">Cidades</th></tr>
-            <tr><td>Código</td><td>Nome</td><td>UF</td><td>Operação</td></tr>
+            <tr><th colspan="6">Encomendas Encontradas</th></tr>
+            <tr><td>Código</td><td>Peso</td><td>Valor</td><td>Data de Emissão</td><td>Destino</td><td>Detalhes</td></tr>
             <?=$tabela?>
         </table>
     </fieldset>

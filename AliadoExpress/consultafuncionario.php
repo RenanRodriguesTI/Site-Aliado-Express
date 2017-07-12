@@ -225,9 +225,9 @@ else
                         <li><a href="consultafuncionario.php" target="_self">Consulta de Funcionário</a></li>
                         <li><a href="cadastrocliente.php" target="_self">Cadastro de Cliente</a></li>
                         <li><a href="consultacliente.php" target="_self">Consulta de Cliente</a></li>
-                        <li><a href="cadastroerncomenda.php" target="_self">Cadastro de Encomenda</a></li>
+                        <li><a href="cadastroencomenda.php" target="_self">Cadastro de Encomenda</a></li>
                         <li><a href="consultaencomenda.php" target="_self">Consulta de Encomenda</a></li>
-                        <li><a href="cadastroroamenio.php" target="_self">Emitir Romaneio</a></li>
+                        <li><a href="cadastroromaneio.php" target="_self">Emitir Romaneio</a></li>
                         <li><a href="consultaromaneio.php" target="_self">Consultar Romaneio</a></li>
                     </ul>
                 
@@ -271,8 +271,13 @@ else
        
         <table id="listagem">
             
-            <tr><th colspan="4">Cidades</th></tr>
-            <tr><td>Código</td><td>Nome</td><td>UF</td><td>Operação</td></tr>
+            <tr><th colspan="5">Funcionários</th></tr>
+            <tr><td>Matricula</td><td>Nome</td><td>RG</td><td>CPF</td><td>Detalhes</td></tr>
+            <tr><td>001</td><td>Renan Rodrigues Machado</td><td>548282936</td><td>46769518848</td><td>Detalhes</td></tr>
+            <tr><td>001</td><td>Renan Rodrigues Machado</td><td>548282936</td><td>46769518848</td><td>Detalhes</td></tr>
+            <tr><td>001</td><td>Renan Rodrigues Machado</td><td>548282936</td><td>46769518848</td><td>Detalhes</td></tr> 
+            
+          
             <?=$tabela?>
         </table>
     </fieldset>

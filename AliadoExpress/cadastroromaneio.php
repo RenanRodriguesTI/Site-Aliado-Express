@@ -7,6 +7,7 @@ session_start();
     $cidade = $estado = $usuario = "";
     $id= $idestado = 0;
     $mensagem="";
+$tabela="";
    
 if(isset($_SESSION["usuario"]))
 {
@@ -26,7 +27,7 @@ else
     <meta charset="utf-8" />
     <title><?=$usuario?></title>
     <link rel="stylesheet" href="CSS/estilo.css"/>
-    <link rel="stylesheet" href="CSS/estilocpanel.css"/>
+    <link rel="stylesheet" href="CSS/estiloformcpanel.css"/>
     <link rel="stylesheet" href="CSS/estiloformcadastros.css" />
     <style>
         label{
@@ -224,9 +225,9 @@ else
                         <li><a href="consultafuncionario.php" target="_self">Consulta de Funcionário</a></li>
                         <li><a href="cadastrocliente.php" target="_self">Cadastro de Cliente</a></li>
                         <li><a href="consultacliente.php" target="_self">Consulta de Cliente</a></li>
-                        <li><a href="cadastroerncomenda.php" target="_self">Cadastro de Encomenda</a></li>
+                        <li><a href="cadastroencomenda.php" target="_self">Cadastro de Encomenda</a></li>
                         <li><a href="consultaencomenda.php" target="_self">Consulta de Encomenda</a></li>
-                        <li><a href="cadastroroamenio.php" target="_self">Emitir Romaneio</a></li>
+                        <li><a href="cadastroromaneio.php" target="_self">Emitir Romaneio</a></li>
                         <li><a href="consultaromaneio.php" target="_self">Consultar Romaneio</a></li>
                     </ul>
                 
@@ -249,8 +250,36 @@ else
                     <img src="IMAGENS/userperfilmenor.png" alt="Usuário"/>
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
-               
-                
+                 
+      
+                         <form name="cadastrocidade" action="cadastrocidade.php" method="post" class="formulario">
+     <h3 class="titulo">Cadastro de Cidade</h3>
+<div class="area-formulario" id="area1">
+   <?=$mensagem?>
+    <label for="codcidade">Código da Cidade</label>
+    <input type="text" class="texto" name="codcidade" id="codcidade" value="<?=$id?>" readonly/>
+    
+    <label for="estado">Estado</label>
+     <select name="estado" id="estado" onchange="cadastrocidade.submit()">
+    <option value="0">Selecione o Estado</option>
+        <?=($idestado = gerarOptionEstados($estado))?> 
+    </select>
+     <label for="cidade">Cidade</label>
+     <select name="cidade" id="cidade">
+    <option value="0">Selecione a Cidade</option>
+        <?=gerarOptionCidades($idestado, $cidade)?>
+    </select>
+    
+    
+</div>
+<div class="area-formulario" id="area2" style="float:right">
+  
+<input type="submit" class="bt_acao" name="localizar" value="Localizar"/>
+<input type="submit" class="bt_acao" name="btn_cadastrar" value="Salvar"/>
+<input type="submit" class="bt_acao" name="excluir" value="Excluir"/> 
+<input type="submit" class="bt_acao" name="btn_cancelar" value="Cancelar"/>
+</div>
+</form>
 
                 
                 

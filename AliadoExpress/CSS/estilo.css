@@ -16,7 +16,9 @@ div#interface{
  
 
 }
-
+section#conteudo{
+min-height:600px;width:100%;background-color: aqua;
+}
 
 body header nav ul#menu{
     
