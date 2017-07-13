@@ -1,6 +1,7 @@
 <?php
     //o arquivo banco.php contém apenas métodos para abrir e fechar conexão com o banco de dados
-    require "banco.php";
+    require_once "banco.php";
+    require_once "CLASSES/caminhao.class.php";
 
     //classe responsável pelas manipulações no banco
     class caminhaoRepository{
@@ -40,13 +41,13 @@
             $comando = $pdo->prepare("update caminhao set combustivel_caminhao = :combustivel,placa_caminhao=:placa,anofabricacao_caminhao = :anofabricacao where cod_caminhao =:cod");
             //atribuição dos parametros citados acima (:combustivel,:placa,:anofabricacao,:cod)
             //o parametro :cod recebe o atributo identificação do caminhao
-            bindaValue(":cod",$caminhao->getidcaminhao());
+            $comando->bindValue(":cod",$caminhao->getIdcaminhao());
             //o parametro :combustivel recebe o atributo combustivel do objeto caminhao
-            bindValue(":combustivel",$caminhao->getcombustivel());
+            $comando->bindValue(":combustivel",$caminhao->getcombustivel());
             //o parametro :placa recebe o atributo placa do objeto caminhao
-            bindValue(":placa",$caminhao->getplaca());
+            $comando->bindValue(":placa",$caminhao->getCodplaca());
             //o parametro :anofabricacao recebe o atributo ano de fabricação do objeto caminhao
-            bindValue(":anofabricacao",$caminhao->getanofab());
+            $comando->bindValue(":anofabricacao",$caminhao->getAnofab());
             //executa o comando sql com parametros definidos acima
             $comando->execute();
             //destroi o objeto pdo
@@ -66,7 +67,7 @@
             $comando = $pdo->prepare("delete from caminhao where cod_caminhao = :cod");
             //Atribuição de valor para o paramento :cod
             //o parametro :cod recebe o atributo identificação do objeto caminhao
-            bindValue(":cod",$caminhao->getidcaminhao());
+            $comando->bindValue(":cod",$caminhao->getIdcaminhao());
             $comando->execute();
             //destroi o objeto pdo
             Desconectar($pdo);
@@ -75,16 +76,17 @@
         public function localizarporcodigo($codigo)
         {
             try{
+                $caminhao = "";
                 $pdo= Conectar();
-                $comando = $pdo->prepare("select * from cliente where   cod_cliente = :id");
+                $comando = $pdo->prepare("select * from caminhao where   cod_caminhao = :id");
                 $comando->bindValue(":id",$codigo);
                 $comando->execute();
-                if($linha = $comando->fecth(PDO::FETCH_ASSOC))
+                if($linha = $comando->fetch(PDO::FETCH_ASSOC))
                 {
-                    return $linha;
+                    $caminhao = new caminhao($linha["COD_CAMINHAO"],$linha["PLACA_CAMINHAO"],$linha["ANOFABRICACAO_CAMINHAO"],$linha["COMBUSTIVEL_CAMINHAO"]);
                 }
                 Desconectar($pdo);
-
+                return $caminhao;
             }
             catch(Exception $e)
             {

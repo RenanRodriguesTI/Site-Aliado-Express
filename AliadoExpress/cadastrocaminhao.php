@@ -26,14 +26,41 @@ if(isset($_POST["btn_cadastrar"]))
     $anofabricacao = $_POST["ano_fab"];
     $caminhao = new caminhao($codigocaminhao,$placa,$anofabricacao,$combustivel);
     $caminhaoR = new caminhaoRepository();
-    $caminhaoR->gravar($caminhao);
+    if($codigocaminhao == "")
+    {
+        $caminhaoR->gravar($caminhao);
+    }
+    else {
+        $caminhaoR->alterar($caminhao);
+    }
+    
 }
 
 if(isset($_POST["localizar"]))
 {
     header("Location: consultacaminhao.php");
 }
-
+if(isset($_GET["id"]))
+{
+    $combustivel = $_GET["id"];
+    $caminhaoR = new caminhaoRepository();
+    $caminhao = $caminhaoR->localizarporcodigo($combustivel);
+    $codigocaminhao = $caminhao->getIdcaminhao();
+    $placa = $caminhao->getCodplaca();
+    $anofabricacao = $caminhao->getAnofab();
+    
+}
+if(isset($_POST["excluir"])){
+    $codigocaminhao = $_POST["codcaminhao"];
+    $caminhaoR = new caminhaoRepository();
+    $caminhao = new caminhao();
+    $caminhao->setIdcaminhao($codigocaminhao);
+    $caminhaoR->excluir($caminhao);
+    $codigocaminhao="";
+    $placa="";
+    $combustivel="";
+    $anofabricacao="";
+}
 ?>
 
 <!DOCTYPE html>

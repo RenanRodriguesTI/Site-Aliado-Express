@@ -256,7 +256,7 @@ else
 <div class="area-formulario" id="area1">
    
     <label for="nome">Pesquisa</label>
-    <input type="text" class="texto" name="codfun" id="nome"/>
+    <input type="text" class="texto" name="pesquisa" id="nome"/>
      
 
     
@@ -273,9 +273,7 @@ else
             
             <tr><th colspan="5">Funcionários</th></tr>
             <tr><td>Matricula</td><td>Nome</td><td>RG</td><td>CPF</td><td>Detalhes</td></tr>
-            <tr><td>001</td><td>Renan Rodrigues Machado</td><td>548282936</td><td>46769518848</td><td>Detalhes</td></tr>
-            <tr><td>001</td><td>Renan Rodrigues Machado</td><td>548282936</td><td>46769518848</td><td>Detalhes</td></tr>
-            <tr><td>001</td><td>Renan Rodrigues Machado</td><td>548282936</td><td>46769518848</td><td>Detalhes</td></tr> 
+            <?=$tabela?> 
             
           
             <?=$tabela?>

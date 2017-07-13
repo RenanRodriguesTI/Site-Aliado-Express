@@ -22,7 +22,10 @@ if(isset($_POST["localizar"]))
 {
     $caminhaoR = new caminhaoRepository();
     $resultado = $caminhaoR->localizartudo();
-    $tabela = montartabela($resultado);
+    if($resultado !="")
+    {
+        $tabela = montartabela($resultado);
+    }
 }
 
 function montartabela($resultado)

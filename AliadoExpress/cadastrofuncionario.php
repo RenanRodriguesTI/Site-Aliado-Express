@@ -7,6 +7,12 @@ session_start();
     $cidade = $estado = $usuario = "";
     $id= $idestado = 0;
     $mensagem="";
+    $nome ="";
+    $RG="";
+    $CPF="";
+    $Fone="";
+    $Login="";
+    $senha="";
    
 if(isset($_SESSION["usuario"]))
 {
@@ -16,6 +22,11 @@ else
 {
     header("Location: login.php");
 }
+if(isset($_POST["localizar"]))
+{
+    header("Location: consultafuncionario.php");
+}
+
 
 
 ?>
@@ -219,7 +230,7 @@ else
 <div class="area-formulario" id="area1">
    
     <label for="nome">Matricula</label>
-    <input type="text" class="texto" name="codfun" id="nome"/>
+    <input type="text" class="texto" name="codfun" id="nome" readonly/>
     
     <label for="nome">Nome</label>
     <input type="text" class="texto" name="nomefun" id="nome"/>
