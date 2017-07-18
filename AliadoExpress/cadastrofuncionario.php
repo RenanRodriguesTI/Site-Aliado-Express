@@ -1,18 +1,21 @@
 <?php
-require_once "CLASSES/cidade.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
+require_once "CLASSES/motorista.class.php";
+require_once "REPOSITORIOS/motoristaRepository.class.php";
 require_once "funcoes.php";
+$numero ="1456.09";
+number_format($numero,2,",",".");
 
 session_start();
     $cidade = $estado = $usuario = "";
     $id= $idestado = 0;
     $mensagem="";
-    $nome ="";
+    $Nome ="";
     $RG="";
     $CPF="";
     $Fone="";
     $Login="";
-    $senha="";
+    $Senha="";
+    $Matricula="";
    
 if(isset($_SESSION["usuario"]))
 {
@@ -26,9 +29,55 @@ if(isset($_POST["localizar"]))
 {
     header("Location: consultafuncionario.php");
 }
+if(isset($_POST["btn_cadastrar"]))
+{
+    $Matricula = $_POST["codfun"];
+    $Nome = $_POST["nomefun"];
+    $RG = $_POST["rg_fun"];
+    $CPF = $_POST["cpf_fun"];
+    $Fone = $_POST["fone"];
+    $Login = $_POST["login"];
+    $Senha = $_POST["senha"];
+    $funcionario = new motorista($Matricula,$Nome,$RG,$CPF,$Fone,$Login,$Senha);
+    $funcionarioR = new motoristaRepository();
+    if($Matricula == "")
+    {
+        $funcionarioR->gravar($funcionario);
+    }
+    else
+    {
+        $funcionarioR->alterar($funcionario);
+    }
+}
+
+if(isset($_GET["id"]))
+{
+    $id = $_GET["id"];
+    $motorista = new motorista();
+    $motorista->setMatricula($id);
+    $motoristaR = new motoristaRepository();
+    $motorista = $motoristaR->localizarporcodigo($motorista->getMatricula());
+    if($motorista !="")
+    {
+        $Matricula = $motorista->getMatricula();
+        $Nome = $motorista->getNome();
+        $RG = $motorista->getRG();
+        $CPF = $motorista->getCPF();
+        $Fone = $motorista->getFone();
+        $Login = $motorista->getLogin();
+        $Senha = $motorista->getSenha();
+    }
+}
 
 
-
+if(isset($_POST["excluir"]))
+{
+    $Matricula = $_POST["codfun"];
+    $motorista = new motorista();
+    $motorista->setMatricula($Matricula);
+    $motoristaR = new motoristaRepository();
+    $motoristaR->excluir($motorista->getMatricula());
+}
 ?>
 
 <!DOCTYPE html>
@@ -230,26 +279,26 @@ if(isset($_POST["localizar"]))
 <div class="area-formulario" id="area1">
    
     <label for="nome">Matricula</label>
-    <input type="text" class="texto" name="codfun" id="nome" readonly/>
+    <input type="text" class="texto" name="codfun" id="nome" value="<?=$Matricula?>" readonly/>
     
     <label for="nome">Nome</label>
-    <input type="text" class="texto" name="nomefun" id="nome"/>
+    <input type="text" class="texto" name="nomefun" id="nome" value="<?=$Nome?>"/>
 
     
     <label for="rg">RG</label>
-    <input type="text" class="texto" name="rg_fun" id="rg" />
+    <input type="text" class="texto" name="rg_fun" id="rg" value="<?=$RG?>" />
 
     <label for="cpf">CPF</label>
-    <input type="text" class="texto" name="cpf_fun" id="cpf"/>
+    <input type="text" class="texto" name="cpf_fun" id="cpf" value="<?=$CPF?>"/>
     
     <label for="fone">Fone</label>
-    <input type="text" class="texto" name="fone" id="fone" />
+    <input type="text" class="texto" name="fone" id="fone" value="<?=$Fone?>" />
     
     <label for="login">Login</label>
-    <input type="text" class="texto" name="login" id="login" />
+    <input type="text" class="texto" name="login" id="login" value="<?=$Login?>" />
     
     <label for="senha">Senha</label>
-    <input type="password" class="texto" name="senha" id="senha"/>
+    <input type="password" class="texto" name="senha" id="senha" value="<?=$Senha?>"/>
     
 </div>
 <div class="area-formulario" id="area2" style="float:right">

@@ -1,6 +1,6 @@
 <?php
-require_once "CLASSES/cidade.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
+require_once "CLASSES/motorista.class.php";
+require_once "REPOSITORIOS/motoristaRepository.class.php";
 require_once "funcoes.php";
 
 session_start();
@@ -18,7 +18,25 @@ else
     header("Location: login.php");
 }
 
+if(isset($_POST["localizar"]))
+{
+    $motoristaR = new motoristaRepository();
+   $resultado =  $motoristaR ->buscacompleta();
+   if($resultado != "")
+   {
+        $tabela = montartabela($resultado);
+   }
+}
 
+function montartabela($resultado)
+{
+    $tabela="";
+    foreach($resultado as $motorista)
+    {
+        $tabela .="<tr><td>{$motorista->getMatricula()}</td><td>{$motorista->getNome()}</td><td>{$motorista->getRg()}</td><td>{$motorista->getCPF()}</td><td><a href='cadastrofuncionario.php?id={$motorista->getMatricula()}'>Mais</a></td></tr>";
+    }
+    return $tabela;
+}
 ?>
 
 <!DOCTYPE html>
@@ -251,7 +269,7 @@ else
                 </figure>
                 <h2 id="nomeusuario">Nome do usuário</h2>
                
-                <form action="consultacidade.php" method="post" class="formulario">
+                <form action="consultafuncionario.php" method="post" class="formulario">
      <h3 class="titulo">Consulta de cidades</h3>
 <div class="area-formulario" id="area1">
    
@@ -274,9 +292,6 @@ else
             <tr><th colspan="5">Funcionários</th></tr>
             <tr><td>Matricula</td><td>Nome</td><td>RG</td><td>CPF</td><td>Detalhes</td></tr>
             <?=$tabela?> 
-            
-          
-            <?=$tabela?>
         </table>
     </fieldset>
 </form>

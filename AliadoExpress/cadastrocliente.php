@@ -7,6 +7,19 @@ session_start();
     $cidade = $estado = $usuario = "";
     $id= $idestado = 0;
     $mensagem="";
+
+
+    $Nome ="";
+    $CPF_CNPJ = "";
+    $RG_IE = "";
+    $Email = "";
+    $Bairro = "";
+    $Cidade = "";
+    $Rua = "";
+    $CEP = "";
+    $Login = "";
+    $Senha = "";
+    $Fone = "";
    
 if(isset($_SESSION["usuario"]))
 {
@@ -17,7 +30,14 @@ else
     header("Location: login.php");
 }
 
+if(isset($_POST["btn_cadastrar"]))
+{
 
+}
+if(isset($_POST["localizar"]))
+{
+    header("Location: consultacliente.php");
+}
 ?>
 
 <!DOCTYPE html>

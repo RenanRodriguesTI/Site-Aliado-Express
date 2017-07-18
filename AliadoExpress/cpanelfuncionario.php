@@ -17,7 +17,7 @@ else
     <meta charset="utf-8" />
     <title><?=$usuario?></title>
     <link rel="stylesheet" href="CSS/estilo.css"/>
-    <link rel="stylesheet" href="CSS/estilocpanel.css"/>
+    <link rel="stylesheet" href="CSS/estiloformcpanel.css"/>
     <style>
         #imagem-fundo{
              background-image:url(IMAGENS/estrada1.png);
@@ -185,14 +185,14 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                           <a href="cadastrounidade.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
+                           <a href="cadastrounidade.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Unidade"/></a>
                         </figure>
                         
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                            <a href="cadastrounidade.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Atualizar Unidade"/></a>
                         </figure>
                         
                     
@@ -200,7 +200,7 @@ else
                     <div class="opcoescpanel">
                         <h3>Consultar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                            <a href="consultaunidade.php" target="_self"><img  src="IMAGENS/pesquisa.png" alt="Consultar Unidade"/></a>
                         </figure>
                         
                     
@@ -222,14 +222,14 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                            <a href="cadastrofuncionario.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Funcionário"/></a>
                         </figure>
                         
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                            <a href="cadastrofuncionario.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Alterar dados"/></a>
                         </figure>
                         
                     
@@ -237,7 +237,7 @@ else
                     <div class="opcoescpanel">
                         <h3>Consultar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                            <a href="consultafuncionario.php" target="_self"><img  src="IMAGENS/pesquisa.png" alt="Pesquisar funcionário"/></a>
                         </figure>
                         
                     
@@ -259,14 +259,14 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                            <a href="cadastrocliente.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Cliente"/></a>
                         </figure>
                         
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                            <a href="cadastrocliente.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Atualizar Cliente"/></a>
                         </figure>
                         
                     
@@ -274,7 +274,7 @@ else
                     <div class="opcoescpanel">
                         <h3>Consultar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                            <a href="consultacliente.php" target="_self"><img  src="IMAGENS/pesquisa.png" alt="Consultar Cliente"/></a>
                         </figure>
                         
                     
@@ -296,14 +296,14 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                            <a href="cadastroencomenda.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
                         </figure>
                         
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                            <a href="cadastroencomenda.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/></a>
                         </figure>
                         
                     
@@ -311,7 +311,7 @@ else
                     <div class="opcoescpanel">
                         <h3>Consultar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                            <a href="consultaencomenda.php"><img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/></a>
                         </figure>
                         
                     
@@ -333,14 +333,14 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                            <a href="cadastrocaminhao.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
                         </figure>
                         
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                            <a href="cadastrocaminhao.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/></a>
                         </figure>
                         
                     
@@ -348,7 +348,7 @@ else
                     <div class="opcoescpanel">
                         <h3>Consultar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                            <a href="consultacaminhao.php" target="_self"><img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/></a>
                         </figure>
                         
                     
@@ -369,14 +369,14 @@ else
                     <div class="opcoescpanel">
                         <h3 class="centro">Cadastrar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/>
+                            <a href="cadastroromaneio.php" target="_self"><img  src="IMAGENS/cadastrar.png" alt="Cadastrar Encomenda"/></a>
                         </figure>
                         
                     </div>
                     <div class="opcoescpanel">
                         <h3 class="centro">Alterar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/>
+                            <a href="cadastroromaneio.php" target="_self"><img  src="IMAGENS/atualizar.png" alt="Atualizar Encomenda"/></a>
                         </figure>
                         
                     
@@ -384,7 +384,7 @@ else
                     <div class="opcoescpanel">
                         <h3>Consultar</h3>
                         <figure class="imagensdopainel">
-                            <img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/>
+                            <a href="consultaromaneio.php" target="_self"><img  src="IMAGENS/pesquisa.png" alt="Consultar Encomenda"/></a>
                         </figure>
                         
                     
