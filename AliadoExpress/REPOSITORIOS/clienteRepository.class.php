@@ -19,8 +19,9 @@ require_once "banco.php";
         $comando->bindValue(":BAIRRO_CLIENTE",$cliente->getBairro());
         $comando->bindValue(":COD_CIDADE",$cliente->getCodcidade()->getCodcidade());
         $comando->bindValue(":CEP_CLIENTE",$cliente->getCep());
-         $comando->bindValue(":LOGIN_CLIENTE",$cliente->getLogin());
-       $comando->bindValue(":SENHA_CLIENTE",$cliente->getsenha());
+        $comando->bindValue(":LOGIN_CLIENTE",$cliente->getLogin());
+        $comando->bindValue(":SENHA_CLIENTE",$cliente->getsenha());
+
      
        
         //executa o comando de inserção no banco passando como parametro o array $parametro

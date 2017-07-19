@@ -1,10 +1,25 @@
 <?php
+require "cliente.class.php";
     class cliente_fisico
     {
-            private $rgfisica;
+         private $rgfisica;
          private $cpffisica;
          private $codcliente;
 
+		 public function __construct($codcliente=null,$rgfisica="",$cpffisica=""){
+			 if($this->codcliente == null)
+			 {
+				 $this->codcliente = new cliente();
+			 }
+			 else
+			 {
+				 $this->codcliente = $codcliente;
+			 }
+			 $this->rgfisica = $rgfisica;
+			 $this->cpffisica = $cpffisica;
+
+
+		 }
          public function getCodcliente(){
 		    return $this->codcliente;
 	     }

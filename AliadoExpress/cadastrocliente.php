@@ -1,5 +1,5 @@
 <?php
-require_once "CLASSES/cidade.class.php";
+require_once "CLASSES/cliente.class.php";
 require_once "REPOSITORIOS/cidadeRepository.class.php";
 require_once "funcoes.php";
 
@@ -8,7 +8,7 @@ session_start();
     $id= $idestado = 0;
     $mensagem="";
 
-
+        $Codigo="";
     $Nome ="";
     $CPF_CNPJ = "";
     $RG_IE = "";
@@ -32,7 +32,30 @@ else
 
 if(isset($_POST["btn_cadastrar"]))
 {
-
+    
+    $Codigo = $_POST["txtcodcli"];
+    $Nome = $_POST["txtnome"];
+    $CPF_CNPJ = $_POST["cnpj_cpf"];
+    $RG_IE = $_POST["ie_rg"];
+    $Email = $_POST["email"];
+    $Bairro = $_POST["bairro"];
+    $Cidade = $_POST["cidade"];
+    $Rua = $_POST["endereco"];
+    $CEP = $_POST["cep"];
+    $Login = $_POST["login"];
+    $Senha = $_POST["senha"];
+    $Fone = "";
+    if(isset($_POST["clioption"]))
+    {
+        $Pessoa = $_POST["clioption"];
+        if($Pessoa == "F")
+        {
+            $Pessoa = new cliente_fisico("",$RG_IE,$CPF_CNPJ);
+        }
+    }
+    $CidadeO = new cidade();
+    $CidadeO->setCodcidade($Cidade);
+    $cliente = new cliente($Codigo,$cliente,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha,$RG_IE,$CPF_CNPJ,$Pessoa);
 }
 if(isset($_POST["localizar"]))
 {
@@ -302,7 +325,7 @@ if(isset($_POST["localizar"]))
         
     </fieldset>
     <label for="razaosoc" id="lab_ei_rg">RG</label>
-    <input type="text" class="texto" id="razaosoc" name="razaosoc_rg" />
+    <input type="text" class="texto" id="razaosoc" name="ie_rg" />
     
     <label for="cnpj_cpf" id="labcnpj_cpf">CPF</label>
     <input type="text" class="texto" id="cnpj_cpf" name="cnpj_cpf" />

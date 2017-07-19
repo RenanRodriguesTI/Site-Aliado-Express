@@ -14,9 +14,13 @@ require_once "cidade.class.php";
 		//objeto cliente ou funcionario
 		private $login;
 		private $senha;
+
+		private $RG_IE;
+		private $CPF_CNPJ;
+		private $pessoa;
     
 
-	public function __construct($codcliente=0,$codcidade=null,$nomecliente="",$email="",$endereco="",$bairro="",$cep="",$login="",$senha="")
+	public function __construct($codcliente=0,$codcidade=null,$nomecliente="",$email="",$endereco="",$bairro="",$cep="",$login="",$senha="",$RG_IE="",$CPF_CNPJ="",$pessoa=null)
 	{
 		$this->codcliente=$codcliente;
 		if($codcidade == null)
@@ -27,6 +31,14 @@ require_once "cidade.class.php";
 			$this->codcidade = $codcidade;
 
 		}
+		if($this->pessoa == null)
+		{
+			$this->pessoa = new cliente_fisico();
+		}
+		else
+		{
+			$this->pessoa = $pessoa;
+		}
 	
 		$this->nomecliente=$nomecliente;
 		$this->email = $email;
@@ -35,6 +47,7 @@ require_once "cidade.class.php";
 		$this->cep = $cep;
 		$this->login = $login;
 		$this->senha = $senha;
+		
 		
 	
 	}
@@ -111,6 +124,14 @@ require_once "cidade.class.php";
 		$this->senha = $senha;
 	}
 
+	public function getPessoa(){
+		return $this->pessoa;
+	}
+
+	public function setPessoa($pessoa){
+		$this->pessoa = $pessoa;
+	}
+ 
 
     public function validacao()
     {
