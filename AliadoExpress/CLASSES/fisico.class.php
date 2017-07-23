@@ -1,5 +1,5 @@
 <?php
-require "cliente.class.php";
+require_once "cliente.class.php";
     class cliente_fisico
     {
          private $rgfisica;
@@ -7,7 +7,7 @@ require "cliente.class.php";
          private $codcliente;
 
 		 public function __construct($codcliente=null,$rgfisica="",$cpffisica=""){
-			 if($this->codcliente == null)
+			 if($codcliente == null)
 			 {
 				 $this->codcliente = new cliente();
 			 }

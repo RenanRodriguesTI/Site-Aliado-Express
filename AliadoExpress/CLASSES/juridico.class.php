@@ -1,4 +1,5 @@
 <?php
+require_once "cliente.class.php";
     class cliente_juridico{
         private $IE;
         private $CNPJ;
@@ -6,7 +7,7 @@
 
 		public function __construct($codcliente=null,$CNPJ,$IE)
 		{
-			if($this->codcliente == null)
+			if($codcliente == null)
 			{
 				$this->codcliente = new cliente();
 			}
@@ -29,7 +30,7 @@
 		return $this->IE;
 		}
 
-		public function setRG_IE($IE){
+		public function setIE($IE){
 		$this->IE = $IE;
 		}
 

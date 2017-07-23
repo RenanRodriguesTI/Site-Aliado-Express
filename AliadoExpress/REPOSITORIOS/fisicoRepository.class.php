@@ -12,7 +12,7 @@
                 //atribui valor ao parametro :rg
                 $comando->bindValue(":rg",$fisica->getRgFisica());
                 //atribui valor ao parametro :cod
-                $comando->bindValue(":cod",$fisica->getCodcliente());
+                $comando->bindValue(":cod",$fisica->getCodcliente()->getCodcliente());
                 //executa o comando sql
                 $comando->execute();
                 //fecha a conexão

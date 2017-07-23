@@ -1,5 +1,5 @@
 <?php
-require_once "cliente.class.php";
+require_once "CLASSES/cliente.class.php";
 require_once "banco.php";
     //classe responsável por gerenciar a gravação dos dados do cliente
     class clienteRepository {
@@ -26,7 +26,10 @@ require_once "banco.php";
        
         //executa o comando de inserção no banco passando como parametro o array $parametro
         $comando ->execute();
+        
+        $codigo = $pdo->lastInsertId();
         Desconectar($pdo);
+        return $codigo;
 
     }
     catch(Exception $e)
@@ -165,6 +168,22 @@ public function localizarpornome($nome)
         Desconectar($pdo);
     }
 }
+
+    public function localizartudo()
+    {
+        try{
+            $cliente = "";
+            $pdo = Conectar();
+            $comando = $pdo->prepare("select * from  cliente");
+            $comando->execute();
+            //ler todas linhas de dados
+            Desconectar();
+        }
+        catch(Exception $erro)
+        {
+            Desconectar($pdo);
+        }
+    }
 
 
     }

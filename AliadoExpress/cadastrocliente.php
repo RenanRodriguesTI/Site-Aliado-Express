@@ -1,6 +1,13 @@
 <?php
 require_once "CLASSES/cliente.class.php";
-require_once "REPOSITORIOS/cidadeRepository.class.php";
+require_once "REPOSITORIOS/clienteRepository.class.php";
+require_once "CLASSES/cidade.class.php";
+require_once "CLASSES/fone.class.php";
+require_once "REPOSITORIOS/foneRepository.class.php";
+require_once "CLASSES/fisico.class.php";
+require_once "REPOSITORIOS/fisicoRepository.class.php";
+require_once "CLASSES/juridico.class.php";
+require_once "REPOSITORIOS/juridicoRepository.class.php";
 require_once "funcoes.php";
 
 session_start();
@@ -44,18 +51,39 @@ if(isset($_POST["btn_cadastrar"]))
     $CEP = $_POST["cep"];
     $Login = $_POST["login"];
     $Senha = $_POST["senha"];
-    $Fone = "";
+    $Fone = $_POST["telefone"];
     if(isset($_POST["clioption"]))
     {
-        $Pessoa = $_POST["clioption"];
-        if($Pessoa == "F")
+        $OP = $_POST["clioption"];
+        if($OP == "F")
         {
-            $Pessoa = new cliente_fisico("",$RG_IE,$CPF_CNPJ);
+            
+            $CidadeO = new cidade();
+            $CidadeO->setCodcidade($Cidade);
+            $cliente = new cliente($Codigo,$CidadeO,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha);
+            $clienteR = new clienteRepository();
+            $cliente->setCodcliente($clienteR->gravar($cliente));
+            $Pessoa = new cliente_fisico($cliente,$RG_IE,$CPF_CNPJ);
+            $PessoaR = new fisicoRepository();
+            $PessoaR->gravar($Pessoa);
+            
+        }
+        else
+        {
+            $Pessoa = new cliente_juridico("",$RG_IE,$CPF_CNPJ);
+            $CidadeO = new cidade();
+            $CidadeO->setCodcidade($Cidade);
+            $cliente = new cliente($Codigo,$cliente,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha,$Pessoa);
+            $clienteR = new clienteRepository();
+            $clienteR->gravar($cliente);
+            $Pessoa->setCodcliente($clienteR->gravar($cliente));
+            $PessoaR = new fisicoRepository();
+            $PessoaR->gravar($Pessoa);
         }
     }
-    $CidadeO = new cidade();
-    $CidadeO->setCodcidade($Cidade);
-    $cliente = new cliente($Codigo,$cliente,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha,$RG_IE,$CPF_CNPJ,$Pessoa);
+ 
+
+
 }
 if(isset($_POST["localizar"]))
 {
@@ -293,20 +321,20 @@ if(isset($_POST["localizar"]))
 <div class="area-formulario" id="area1">
    
     <label for="txtcodcli">Código</label>
-    <input type="text" class="texto" name="txtcodcli"  id="txtcodcli" readonly />
+    <input type="text" class="texto" name="txtcodcli"  id="txtcodcli" readonly value="<?=$Codigo?>" />
     
     <label for="nome">Nome</label>
-    <input type="text" class="texto" name="txtnome" id="nome"/>
+    <input type="text" class="texto" name="txtnome" id="nome" value="<?=$Nome?>"/>
 
     
     <label for="email">Email</label>
-    <input type="text" class="texto" name="email" id="email" />
+    <input type="text" class="texto" name="email" id="email" value="<?=$Email?>" />
 
     <label for="login">Login</label>
-    <input type="text" class="texto" name="login" id="login"/>
+    <input type="text" class="texto" name="login" id="login" value="<?=$Login?>"/>
     
     <label for="senha">Senha</label>
-    <input type="password" class="texto" name="senha" id="senha" />
+    <input type="password" class="texto" name="senha" id="senha" value="<?=$Senha?>" />
     
     <label for="confirmarsenha">Confirmar Senha</label>
     <input type="text" name="confirmarsenha" class="texto" id="confirmarsenha" />
@@ -325,23 +353,26 @@ if(isset($_POST["localizar"]))
         
     </fieldset>
     <label for="razaosoc" id="lab_ei_rg">RG</label>
-    <input type="text" class="texto" id="razaosoc" name="ie_rg" />
+    <input type="text" class="texto" id="razaosoc" name="ie_rg" value="<?=$RG_IE?>" />
     
     <label for="cnpj_cpf" id="labcnpj_cpf">CPF</label>
-    <input type="text" class="texto" id="cnpj_cpf" name="cnpj_cpf" />
+    <input type="text" class="texto" id="cnpj_cpf" name="cnpj_cpf" value="<?=$CPF_CNPJ?>" />
     
     <label for="cep">CEP</label>
-    <input type="text" id="cep" name="cep" class="texto" value="" onblur="formulariocad.submit()" /><br>
+    <input type="text" id="cep" name="cep" class="texto" value="" onblur="formulariocad.submit()" value="<?=$CEP?>" /><br>
     
     <label for="endereco" >Endereço</label>
-    <input type="text" id="endereco" class="texto" name="endereco" value=""/>
+    <input type="text" id="endereco" class="texto" name="endereco" value="<?=$Rua?>"/>
         
     <label for="bairro">Bairro</label>
-    <input type="text" class="texto" id="bairro" name="bairro" value="" />
+    <input type="text" class="texto" id="bairro" name="bairro" value="<?=$Bairro?>" />
         
     <label for="cidade">Cidade</label>
-    <input id="cidade" type="text" id="cidade" class="texto" name="cidade"  value=""  />
+    <input  type="text" id="cidade" class="texto" name="cidade"  value="<?=$Cidade?>"  />
+    <label for="fone">Telefone</label>
+    <input id="fone" type="text"  class="texto" name="telefone"  value="<?=$Fone?>"  />
 </div>
+
 <div class="area-formulario" id="area2" style="float:right">
   
 <input type="submit" class="bt_acao" name="localizar" value="Localizar"/>

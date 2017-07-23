@@ -1,4 +1,5 @@
 <?php 
+require_once "REPOSITORIOS/clienteRepository.class.php";
 session_start();
 $usuario = "Nome do usuário";
 $tabela="";
@@ -9,6 +10,12 @@ if(isset($_SESSION["usuario"]))
 else
 {
     header("Location: login.php");
+}
+
+if(isset($_POST["localizar"]))
+{
+    $clienteR = new clienteRepository();
+    $clienteR->localizartudo();
 }
 
 ?>
