@@ -42,7 +42,7 @@
              try{
                 $pdo = Conectar();
                 $comando = $pdo->prepare("delete from juridica where cod_cliente = :cod");
-                $comando->bindValue(":cod",$juridico->getCodcliente());
+                $comando->bindValue(":cod",$juridico);
                 $comando->execute();
                 Desconectar($pdo);
             }
@@ -54,11 +54,17 @@
         function localizarporcodigo($juridico)
         {
              try{
+                $pessoa = "";
                 $pdo = Conectar();
                 $comando = $pdo->prepare("select * from juridica where cod_cliente = :cod");
-                $comando->bindValue(":cod",$juridico->getCodcliente());
+                $comando->bindValue(":cod",$juridico);
                 $comando->execute();
+                if($linha = $comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $pessoa = new cliente_juridico($linha["COD_CLIENTE"],$linha["CNPJ_JURIDICA"],$linha["IE_JURIDICA"]);
+                }
                 Desconectar($pdo);
+                return $pessoa;
             }
             catch(Exception $e)
             {
@@ -68,11 +74,18 @@
         function localizarporcnpj($juridico)
         {
              try{
+                $pessoa ="";
                 $pdo = Conectar();
                 $comando = $pdo->prepare("select * from juridica where cnpj_juridica = :cnpj");
                 $comando->bindValue(":cnpj",$juridico->getCNPJ()); 
                 $comando->execute();
+               
+                if($linha = $comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $pessoa = new cliente_juridico($linha["COD_CLIENTE"],$linha["CNPJ_JURIDICA"],$linha["IE_JURIDICA"]);
+                }
                 Desconectar($pdo);
+                return $pessoa;
             }
             catch(Exception $e)
             {

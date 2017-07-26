@@ -73,7 +73,7 @@ public function excluir($cod)
     //Exclui os clientes cadastrados
     try{
         $pdo = Conectar();
-        $comando =$pdo->prepare("delete from cliente where cod_pessoa = :codpessoa");
+        $comando =$pdo->prepare("delete from cliente where cod_cliente= :codpessoa");
         $comando->bindValue(":codpessoa",$cod);
         $comando->execute();
         Desconectar($pdo);
@@ -177,7 +177,13 @@ public function localizarpornome($nome)
             $comando = $pdo->prepare("select * from  cliente");
             $comando->execute();
             //ler todas linhas de dados
-            Desconectar();
+            while($linha = $comando->fetch(PDO::FETCH_ASSOC))
+            {
+                $cidade[] = new cidade($linha["COD_CIDADE"],"","");
+                $cliente[] = new cliente($linha["COD_CLIENTE"],$cidade[count($cidade) - 1],$linha["NOME_CLIENTE"],$linha["EMAIL_CLIENTE"],$linha["ENDERECO_CLIENTE"],$linha["BAIRRO_CLIENTE"],$linha["CEP_CLIENTE"],$linha["LOGIN_CLIENTE"],$linha["SENHA_CLIENTE"]);
+            }
+            Desconectar($pdo);
+            return $cliente;
         }
         catch(Exception $erro)
         {

@@ -62,10 +62,27 @@ if(isset($_POST["btn_cadastrar"]))
             $CidadeO->setCodcidade($Cidade);
             $cliente = new cliente($Codigo,$CidadeO,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha);
             $clienteR = new clienteRepository();
-            $cliente->setCodcliente($clienteR->gravar($cliente));
-            $Pessoa = new cliente_fisico($cliente,$RG_IE,$CPF_CNPJ);
+            
+            
             $PessoaR = new fisicoRepository();
-            $PessoaR->gravar($Pessoa);
+            if($Codigo > 0)
+            {
+                $clienteR->alterar($cliente);
+                $Pessoa = new cliente_fisico($cliente,$RG_IE,$CPF_CNPJ);
+
+                $PessoaR->alterar($Pessoa);
+            }
+            else
+            {
+                
+                $cliente->setCodcliente($clienteR->gravar($cliente));
+                $Pessoa = new cliente_fisico($cliente,$RG_IE,$CPF_CNPJ);
+                $PessoaR->gravar($Pessoa);
+                
+            }
+
+
+            
             
         }
         else
@@ -73,11 +90,11 @@ if(isset($_POST["btn_cadastrar"]))
             $Pessoa = new cliente_juridico("",$RG_IE,$CPF_CNPJ);
             $CidadeO = new cidade();
             $CidadeO->setCodcidade($Cidade);
-            $cliente = new cliente($Codigo,$cliente,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha,$Pessoa);
+            $cliente = new cliente($Codigo,$cliente,$Nome,$Email,$Rua,$Bairro,$CEP,$Login,$Senha);
             $clienteR = new clienteRepository();
             $clienteR->gravar($cliente);
             $Pessoa->setCodcliente($clienteR->gravar($cliente));
-            $PessoaR = new fisicoRepository();
+            $PessoaR = new juridicoRepository();
             $PessoaR->gravar($Pessoa);
         }
     }
@@ -88,6 +105,62 @@ if(isset($_POST["btn_cadastrar"]))
 if(isset($_POST["localizar"]))
 {
     header("Location: consultacliente.php");
+}
+
+if(isset($_GET["id"]))
+{
+
+    $id = $_GET["id"];
+    $clienteR = new clienteRepository();
+    $linha = $clienteR->localizarcodigo($id);
+    $Codigo = $linha["COD_CLIENTE"];
+    $Nome = $linha["NOME_CLIENTE"];
+    $Login = $linha["LOGIN_CLIENTE"];
+    $Senha = $linha["SENHA_CLIENTE"];
+    $Email = $linha["EMAIL_CLIENTE"];
+    $Rua = $linha["ENDERECO_CLIENTE"];
+    $Bairro = $linha["BAIRRO_CLIENTE"];
+    $Cidade = $linha["COD_CIDADE"];
+    $CEP = $linha["CEP_CLIENTE"];
+    $PjuridicaR = new juridicoRepository();
+    $JuridicaO =  $PjuridicaR->localizarporcodigo($id);
+    if($JuridicaO !="")
+    {
+        $RG_IE = $JuridicaO->getIE();
+        $CPF_CNPJ = $JuridicaO->getCNPJ();
+    }
+    else
+    {
+        $FisicoR = new fisicoRepository();
+        $FisicaO = $FisicoR->localizarporcodigo($id);
+        if($FisicaO != "")
+        {
+            $RG_IE = $FisicaO->getRgFisica();
+            $CPF_CNPJ = $FisicaO->getCpfFisica();
+        }
+
+    }
+}
+
+if(isset($_POST["excluir"])){
+    $Codigo = $_POST["txtcodcli"];
+    if(isset($_POST["clioption"]))
+    {
+        $OP = $_POST["clioption"];
+        if($OP == "F")
+        {
+            $PessoaR = new fisicoRepository();
+            $PessoaR->excluir($Codigo);
+        }
+        else
+        {
+            $PessoaR = new juridicoRepository();
+            $PessoaR->excluir($Codigo);
+        }
+        $clienteR = new clienteRepository();
+        $clienteR->excluir($Codigo);
+    }
+    
 }
 ?>
 
@@ -359,8 +432,8 @@ if(isset($_POST["localizar"]))
     <input type="text" class="texto" id="cnpj_cpf" name="cnpj_cpf" value="<?=$CPF_CNPJ?>" />
     
     <label for="cep">CEP</label>
-    <input type="text" id="cep" name="cep" class="texto" value="" onblur="formulariocad.submit()" value="<?=$CEP?>" /><br>
-    
+    <input type="text" id="cep" name="cep" class="texto"   value="<?=$CEP?>" /><br>
+    <!--onblur="formulariocad.submit()"-->
     <label for="endereco" >Endereço</label>
     <input type="text" id="endereco" class="texto" name="endereco" value="<?=$Rua?>"/>
         

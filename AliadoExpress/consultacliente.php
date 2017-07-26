@@ -15,9 +15,20 @@ else
 if(isset($_POST["localizar"]))
 {
     $clienteR = new clienteRepository();
-    $clienteR->localizartudo();
+     $resultado = $clienteR->localizartudo();
+     if($resultado !="")
+     {
+         montartabela($resultado,$tabela);
+     }
 }
 
+function montartabela($resultado,&$tabela)
+{
+    foreach($resultado as $linha)
+    {
+        $tabela .="<tr><td>{$linha->getCodcliente()}</td><td>{$linha->getNomecliente()}</td><td>{$linha->getEmail()}</td><td>_____</td><td>_____</td><td><a href='cadastrocliente.php?id={$linha->getCodcliente()}'>Mais</a></td></tr>";
+    }
+}
 ?>
 
 <!DOCTYPE html>

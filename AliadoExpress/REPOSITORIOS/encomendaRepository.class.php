@@ -154,6 +154,17 @@ require_once "encomenda.class.php";
                 Desconectar($pdo);
             }
         }
+
+        public function localizartodasencomendas()
+        {
+            try{
+
+            }
+            catch(Exception $erro)
+            {
+
+            }
+        }
         
     }
 

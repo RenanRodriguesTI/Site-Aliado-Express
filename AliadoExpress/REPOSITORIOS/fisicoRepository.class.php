@@ -29,7 +29,7 @@
              try{                  
                 $pdo = Conectar();              
                 $comando = $pdo->prepare("update fisica set rg_fisica = :rg,cpf_fisica = :cpf where cod_cliente = :cod");
-                $comando->bindValue(":cod",$fisica->getCodcliente());
+                $comando->bindValue(":cod",$fisica->getCodcliente()->getCodcliente());
                 $comando->bindValue(":rg",$fisica->getRgFisica());
                 $comando->bindValue(":cpf",$fisica->getCpfFisica()); 
                 $comando->execute();
@@ -45,7 +45,7 @@
              try{
                 $pdo = Conectar();
                 $comando = $pdo->prepare("delete from fisica  where cod_cliente = :cod");
-                $comando->bindValue(":cod",$fisica->getCodcliente());
+                $comando->bindValue(":cod",$fisica);
                 $comando->execute();
                 Desconectar($pdo);
             }
@@ -57,11 +57,17 @@
         function localizarporcodigo($fisica)
         {
              try{
+                $pessoa = "";
                 $pdo = Conectar();
                 $comando = $pdo->prepare("select * from fisica where cod_cliente = :cod");
-                $comando->bindValue(":cod",$fisica->getCodcliente());
+                $comando->bindValue(":cod",$fisica);
                 $comando->execute();
+                if($linha = $comando->fetch(PDO::FETCH_ASSOC))
+                {
+                    $pessoa = new cliente_fisico($linha["COD_CLIENTE"],$linha["RG_FISICA"],$linha["CPF_FISICA"]);
+                }
                 Desconectar($pdo);
+                return $pessoa;
             }
             catch(Exception $e)
             {

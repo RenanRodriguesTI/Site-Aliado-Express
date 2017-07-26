@@ -53,6 +53,10 @@ if(isset($_GET["btn"]))
 
 }
 
+if(isset($_SESSION["usuario"]))
+{
+    header("Location: cpanelfuncionario.php");
+}
 ?>
 
 <!DOCTYPE html>

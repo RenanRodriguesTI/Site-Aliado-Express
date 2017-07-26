@@ -5,7 +5,7 @@ require_once "cliente.class.php";
         private $CNPJ;
         private $codcliente;
 
-		public function __construct($codcliente=null,$CNPJ,$IE)
+		public function __construct($codcliente=null,$CNPJ="",$IE="")
 		{
 			if($codcliente == null)
 			{
